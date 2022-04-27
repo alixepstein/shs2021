@@ -325,5 +325,5 @@ why_move = df['d8b_moving_why'].dropna().tolist()
 #overall happiness
 overall_happiness = alt.Chart(df).mark_bar(size = 30).encode(
     alt.X('1_happy_now'),
-    y='count()')
+    alt.Y('count()'))
 st.altair_chart(overall_happiness, use_container_width=False)
