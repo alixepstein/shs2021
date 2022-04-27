@@ -4,7 +4,7 @@ import altair as alt
 import streamlit as st
 
 df = pd.read_csv('SHSdf.csv')
-df_sample = df[['1_happy_now']].head(20)
+df_sample = df[['1_happy_now', 'Ward']].head(20)
 
 
 #overall happiness
