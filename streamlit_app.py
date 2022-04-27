@@ -8,7 +8,7 @@ df_sample = df[['1_happy_now', 'Ward']].head(20)
 
 
 #overall happiness
-overall_happiness = alt.Chart(df_sample).mark_circle().encode(
+overall_happiness = alt.Chart(df_sample).mark_bar().encode(
     alt.X('1_happy_now:Q'),
     alt.Y('count():Q'))
 st.altair_chart(overall_happiness, use_container_width=False)
