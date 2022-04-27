@@ -8,6 +8,8 @@ df = pd.read_csv('SHSdf.csv')
 st.set_page_config(
     page_title="Somerville Happiness Survey 2021", page_icon="📊", initial_sidebar_state="expanded"
 )
+st.title('Somerville Happiness Survey 2021')
+
 
 #overall happiness
 overall_happiness = alt.Chart(df).mark_bar(size = 30).encode(
