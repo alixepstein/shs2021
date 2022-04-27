@@ -1,5 +1,6 @@
 import pandas as pd
 import altair as alt
+import streamlit as st
 
 happiness_2021 = pd.read_csv('happiness 2021.csv')
 cases_per_day = pd.read_csv('cases_per_day.csv')
