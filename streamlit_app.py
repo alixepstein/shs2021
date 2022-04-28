@@ -73,7 +73,7 @@ satis_race = alt.Chart(df_satis_race).mark_bar().encode(
 df_gender = df[df['d1_gender'] != 'No Gender Given']
 satis_gender = alt.Chart(df_gender).mark_bar().encode(
     alt.X('d1_gender:N', title = 'Gender', sort = ['Male', 'Female', 'Gender Non_Conforming']),
-    alt.Y('avg_satis_gender', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by gender', height = 300)
+    alt.Y('avg_satis_gender', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by gender', height = 500)
 
 
 #WARD
