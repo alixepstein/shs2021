@@ -48,6 +48,24 @@ satis_income = alt.Chart(df.dropna()).mark_bar().encode(
     alt.X('d9_income:N', sort = income_categories, title = 'Household income'),
     alt.Y('avg_satis_income:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by income', height = 400)
 
+#satisfaction by race
+satis_race_chart = [
+    ['White', 7.367925],
+    ['Asian', 7.867647],
+    ['Mixed Race', 7.600000],
+    ['Hispanic/Latino', 7.857143],
+    ['Black', 7.259259]]
+df_satis_race = pd.DataFrame(satis_race_chart, columns=['Race', 'Satisfaction'])
+satis_race = alt.Chart(df_satis_race).mark_bar().encode(
+    alt.X('Race:N'),
+    alt.Y('Satisfaction:Q', title = None))
+
+#satisfaction by gender
+df_gender = df[df['d1_gender'] != 'No Gender Given']
+satis_gender = alt.Chart(df_gender).mark_bar().encode(
+    alt.X('d1_gender:N', title = 'Gender', sort = ['Male', 'Female', 'Gender Non_Conforming']),
+    alt.Y('avg_satis_gender', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by gender')
+
 
 
 
@@ -55,7 +73,7 @@ satis_income = alt.Chart(df.dropna()).mark_bar().encode(
 
 #NAVIGATION SIDEBAR
 
-navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall trends', 'Gender','Age', 'Income')) 
+navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall trends', 'Age', 'Gender', 'Income', 'Race', 'Ward')) 
 
 if navigation == 'Introduction':
     
@@ -89,7 +107,8 @@ if navigation == 'Overall trends':
     
 if navigation == 'Gender': 
     st.subheader('Gender')
-    
+    st.markdown('Some description')
+    st.altair_chart(satis_gender)
     
 if navigation == 'Age':
     st.subheader('Age')
@@ -101,6 +120,38 @@ if navigation == 'Income':
     st.markdown('Some description')
     st.altair_chart(satis_income)
     
+if navigation == 'Race':
+    st.subheader('Race')
+    st.markdown('Some description')
+    st.altair_chart(satis_race)
+    
+if navigation == 'Ward':
+    st.subheader('Ward')
+    st.markdown('Some description')
+    st.text('')
+    st.image('ward map.png')
+    
 else:
     pass
+
+
+#RENTING OWNING HOUSING COST CONCERNS
+
+#satisfaction by rent/own status
+avg_rent_own_satis = [
+    ['Rent', 7.312757],
+    ['Own', 7.510204]]
+df_rent_own_satis = pd.DataFrame(avg_rent_own_satis, columns=['Housing Status', 'Satisfaction'])
+rent_own_satis = alt.Chart(df_rent_own_satis).mark_bar().encode(
+    alt.X('Satisfaction:Q', title = None),
+    alt.Y('Housing Status:N')).properties(height=50)
+
+#satisfaction by plans to move
+avg_moving_satis = [
+    ['Planning to Move', 6.447447],
+    ['No Plan to Move', 8.031304]]
+df_moving_satis = pd.DataFrame(avg_moving_satis,columns=['Planning to Move','Satisfaction'])
+moving_satis = alt.Chart(df_moving_satis).mark_bar().encode(
+    alt.X('Satisfaction:Q', title = 'Satisfaction', scale = alt.Scale(domain = (0,8))),
+    alt.Y('Planning to Move:N'))
     
