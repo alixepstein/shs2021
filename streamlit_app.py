@@ -33,6 +33,22 @@ right_direction = alt.Chart(df_right_direction).mark_bar(size = 35).encode(
     alt.X('5_right_direction', title = None),
     alt.Y('count()', title = 'Number of responses')).properties(width = 200)
 
+#satisfaction by age - binned (smooth) average line and unbinned (jagged) average line
+yabin = alt.Chart(df).mark_line().encode(
+    alt.X('d2_age:Q', bin = True, title = 'Age in years'),
+    alt.Y('mean(avg_satis_age):Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by age')
+nabin = bin = alt.Chart(df).mark_line().encode(
+    alt.X('d2_age:Q', title = 'Age in years'),
+    alt.Y('avg_satis_age:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by age')
+satis_over_age = yabin + nabin
+
+#satisfaction by income
+income_categories = ['Less than $10,000', '$10,000 to $24,999', '$25,000 to $49,999', '$50,000 to 74,999', '$75,000 to $99,999', '$100,000 to $149,999', '$150,000 to 200,000', '$200,000 or more']
+satis_income = alt.Chart(df.dropna()).mark_bar().encode(
+    alt.X('d9_income:O', sort = income_categories, title = 'Household income'),
+    alt.Y('avg_satis_income:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by income')
+
+
 
 
 
@@ -73,10 +89,18 @@ if navigation == 'Overall trends':
     
 if navigation == 'Gender': 
     st.subheader('Gender')
+    
+    
 if navigation == 'Age':
     st.subheader('Age')
+    st.markdown('Some description')
+    st.altair_chart(satis_over_age)
+    
 if navigation == 'Income':
     st.subheader('Income')
+    st.markdown('Some description')
+    st.altair_chart(satis_income)
+    
 else:
     pass
     
