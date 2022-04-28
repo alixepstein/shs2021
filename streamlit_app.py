@@ -126,10 +126,8 @@ if navigation == 'Introduction':
     
     
 if navigation == 'Overall trends':
-    
     st.subheader('Overall trends')
     st.markdown('Some description')
-    
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(overall_happiness)
@@ -166,6 +164,14 @@ if navigation == 'Ward':
     st.markdown('Some description')
     st.text('')
     st.image('ward map.png')
+    st.text('')
+    col1, col2 = st.columns(2)
+    with col1:
+        st.altair_chart(ward_housing_cost)
+        st.altair_chart(ward_safe_night)
+    with col2:
+        st.altair_chart(ward_streets_sidewalks)
+        st.altair_chart(ward_beauty)
     
 else:
     pass
