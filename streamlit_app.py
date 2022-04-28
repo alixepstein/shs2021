@@ -17,7 +17,7 @@ st.title('Somerville Happiness Survey 2021')
 
 #overall happiness
 overall_happiness = alt.Chart(df).mark_bar(size = 30).encode(
-    alt.X('1_happy_now:Q', title = 'On a scale of 0 to 10, how happy are you right now?', axis = alt.Axis(format='d')), 
+    alt.X('1_happy_now:Q', title = 'On a scale of 0 to 10, how happy are you right now?', axis = alt.Axis()), 
     alt.Y('count():Q', title = 'Number of responses'))
 
 
