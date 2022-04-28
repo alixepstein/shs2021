@@ -27,14 +27,14 @@ navigation = st.sidebar.radio("Explore the data by:", ('Overall trends', 'Gender
 
 if navigation == 'Overall trends':
     st.altair_chart(overall_happiness, use_container_width=True)
-elif navigation == 'Gender': 
-    #other things
-elif navigation == 'Age':
-    #other other things
-elif navigation == 'Income':
-    #other
-else:
-    #thing
+    elif navigation == 'Gender': 
+        #other things
+    elif navigation == 'Age':
+        #other other things
+    elif navigation == 'Income':
+        #other
+    else:
+        #thing
     
 
 #overall happiness
