@@ -56,9 +56,17 @@ if navigation == 'Introduction':
     
     
 if navigation == 'Overall trends':
+    
     st.subheader('Overall trends')
-    st.altair_chart(overall_happiness)
-    st.altair_chart(overall_satis)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.altair_chart(overall_happiness)
+    with col2:
+        st.altair_chart(overall_satis)
+    st.altair_chart(right_direction)
+    
+    
+    
 if navigation == 'Gender': 
     st.subheader('Gender')
 if navigation == 'Age':
