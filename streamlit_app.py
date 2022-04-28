@@ -38,6 +38,9 @@ navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall 
 
 if navigation == 'Introduction':
     st.markdown('Some description about the survey')
+    st.image(['Somerville Happiness Survey 2021 English.jpg', 'page2 Somerville Happiness Survey 2021 English.jpg'], caption = 'survey')
+    
+    
 if navigation == 'Overall trends':
     st.subheader('Overall trends')
     st.altair_chart(overall_happiness)
