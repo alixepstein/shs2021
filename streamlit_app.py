@@ -38,7 +38,7 @@ navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall 
 
 if navigation == 'Introduction':
     st.markdown('Some description about the survey')
-    st.image(['Somerville Happiness Survey 2021 English.jpg', 'page2 Somerville Happiness Survey 2021 English.jpg'], width = 400, caption = ['1', '2'])
+    st.image(['Somerville Happiness Survey 2021 English.jpg', 'page2 Somerville Happiness Survey 2021 English.jpg'], width = 350, caption = ['1', '2'])
     
     
 if navigation == 'Overall trends':
