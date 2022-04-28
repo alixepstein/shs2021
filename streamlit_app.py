@@ -65,6 +65,8 @@ if navigation == 'Overall trends':
         st.altair_chart(overall_happiness)
     with col2:
         st.altair_chart(overall_satis)
+    st.text('')
+    st.markdown('Overall response to question is Somerville heading in the right direction or on the wrong track?')
     st.altair_chart(right_direction)
     
     
