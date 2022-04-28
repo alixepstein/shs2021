@@ -8,7 +8,7 @@ df = pd.read_csv('SHSdf.csv')
 st.set_page_config(
     page_title="Somerville Happiness Survey 2021", page_icon="📊", initial_sidebar_state="expanded")
 st.title('Somerville Happiness Survey 2021')
-st.markdown('Some description about the survey')
+
 
 
 
@@ -34,17 +34,20 @@ overall_satis = alt.Chart(df).mark_bar(size = 30).encode(
 
 #NAVIGATION SIDEBAR
 
-navigation = st.sidebar.radio("Explore the data by:", ('Overall trends', 'Gender','Age', 'Income')) 
+navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall trends', 'Gender','Age', 'Income')) 
 
+if navigation == 'Introduction':
+    st.markdown('Some description about the survey')
 if navigation == 'Overall trends':
+    st.subheader('Overall trends')
     st.altair_chart(overall_happiness)
     st.altair_chart(overall_satis)
 if navigation == 'Gender': 
-    pass
+    st.subheader('Gender')
 if navigation == 'Age':
-    pass
+    st.subheader('Age')
 if navigation == 'Income':
-    pass
+    st.subheader('Income')
 else:
     pass
     
