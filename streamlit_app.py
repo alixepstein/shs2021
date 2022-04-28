@@ -15,11 +15,12 @@ st.title('Somerville Happiness Survey 2021')
 
 #CHARTS
 
+#OVERALL
+
 #overall happiness
 overall_happiness = alt.Chart(df).mark_bar(size = 30).encode(
     alt.X('1_happy_now:Q', title = 'On a scale of 0 to 10, how happy are you right now?'), 
     alt.Y('count():Q', title = 'Number of responses')).properties(title = 'Overall Happiness')
-
 
 #overall satisfaction with Somerville
 overall_satis = alt.Chart(df).mark_bar(size = 30).encode(
@@ -33,6 +34,8 @@ right_direction = alt.Chart(df_right_direction).mark_bar(size = 35).encode(
     alt.X('5_right_direction', title = None),
     alt.Y('count()', title = 'Number of responses')).properties(width = 200)
 
+#AGE
+
 #satisfaction by age - binned (smooth) average line and unbinned (jagged) average line
 yabin = alt.Chart(df).mark_line().encode(
     alt.X('d2_age:Q', bin = True, title = 'Age in years'),
@@ -42,11 +45,15 @@ nabin = bin = alt.Chart(df).mark_line().encode(
     alt.Y('avg_satis_age:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by age')
 satis_over_age = yabin + nabin
 
+#INCOME
+
 #satisfaction by income
 income_categories = ['Less than $10,000', '$10,000 to $24,999', '$25,000 to $49,999', '$50,000 to 74,999', '$75,000 to $99,999', '$100,000 to $149,999', '$150,000 to 200,000', '$200,000 or more']
 satis_income = alt.Chart(df.dropna()).mark_bar().encode(
     alt.X('d9_income:N', sort = income_categories, title = 'Household income'),
     alt.Y('avg_satis_income:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by income', height = 400)
+
+#RACE
 
 #satisfaction by race
 satis_race_chart = [
@@ -60,11 +67,13 @@ satis_race = alt.Chart(df_satis_race).mark_bar().encode(
     alt.X('Race:N'),
     alt.Y('Satisfaction:Q', title = None))
 
+#GENDER
+
 #satisfaction by gender
 df_gender = df[df['d1_gender'] != 'No Gender Given']
 satis_gender = alt.Chart(df_gender).mark_bar().encode(
     alt.X('d1_gender:N', title = 'Gender', sort = ['Male', 'Female', 'Gender Non_Conforming']),
-    alt.Y('avg_satis_gender', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by gender')
+    alt.Y('avg_satis_gender', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by gender', height = 300)
 
 
 #WARD
