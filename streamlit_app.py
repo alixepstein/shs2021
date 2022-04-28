@@ -44,8 +44,8 @@ satis_over_age = yabin + nabin
 
 #satisfaction by income
 income_categories = ['Less than $10,000', '$10,000 to $24,999', '$25,000 to $49,999', '$50,000 to 74,999', '$75,000 to $99,999', '$100,000 to $149,999', '$150,000 to 200,000', '$200,000 or more']
-satis_income = alt.Chart(df).mark_bar().encode(
-    alt.X('d9_income:O', sort = income_categories, title = 'Household income'),
+satis_income = alt.Chart(df.dropna()).mark_bar().encode(
+    alt.X('d9_income:N', sort = income_categories, title = 'Household income'),
     alt.Y('avg_satis_income:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by income')
 
 
