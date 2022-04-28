@@ -37,7 +37,7 @@ overall_satis = alt.Chart(df).mark_bar(size = 30).encode(
 navigation = st.sidebar.radio("Explore the data by:", ('Overall trends', 'Gender','Age', 'Income')) 
 
 if navigation == 'Overall trends':
-    st.altair_chart(overall_happiness, use_container_width=True)
+    st.altair_chart(overall_happiness)
     st.altair_chart(overall_satis)
 if navigation == 'Gender': 
     pass
