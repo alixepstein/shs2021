@@ -16,6 +16,8 @@ st.title('Somerville Happiness Survey 2021')
 #CHARTS
 
 #overall happiness
+df_happy = df[df['1_happy_now'] != 'nan']
+df_happy['1_happy_now'] = df_happy['1_happy_now'].dropna()
 overall_happiness = alt.Chart(df_happy).mark_bar(size = 30).encode(
     alt.X('1_happy_now:O', title = 'On a scale of 0 to 10, how happy are you right now?'), 
     alt.Y('count():Q', title = 'Number of responses'))
