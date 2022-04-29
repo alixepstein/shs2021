@@ -82,7 +82,7 @@ df_ward = df[df['Ward'] != 'No Answer Given']
 
 #rating of housing cost by ward
 ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
-    alt.X('Ward:N'),
+    alt.X('Ward:N', axis=alt.Axis(format='d')),
     alt.Y('avg_housing_cost_ward:Q', title = 'rating of housing cost')
 ).properties(title = 'Rating of housing cost by ward')
 
