@@ -187,8 +187,8 @@ if navigation == 'Ward':
     st.subheader('Ward')
     st.markdown('Some description')
     st.text('')
-    st.image('ward map.png')
     st.caption('This map shows average happiness ratings by ward. There was not an appreciable difference in happiness between wards. Ward 5 reported the highest average happiness at 7.6, while its neighbor, Ward 3, reported the lowest average happiness at 7.03. The range in happiness between wards was about half a point')
+    st.image('ward map.png')    
     st.text('')
     col1, col2 = st.columns(2)
     with col1:
