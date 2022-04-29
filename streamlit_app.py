@@ -277,21 +277,7 @@ if navigation == 'Ward':
     st.image('ward map.png')
     st.caption('This map shows average happiness ratings by ward. There was not an appreciable difference in happiness between wards. Ward 5 reported the highest average happiness at 7.6, while its neighbor, Ward 3, reported the lowest average happiness at 7.03. The range in happiness between wards was about half a point')   
     st.header('')
-    st.altair_chart(ward_dropdown_satis)
-    st.altair_chart(ward_dropdown_neighborhood_satis)
-    st.altair_chart(ward_dropdown_right_direction)
-    st.altair_chart(ward_dropdown_streets_sidewalks)
-    st.altair_chart(ward_dropdown_street_crossing)
-    st.altair_chart(ward_dropdown_convenient_go)
-    st.altair_chart(ward_dropdown_safe_at_night)
-    st.altair_chart(ward_dropdown_age)
-    st.altair_chart(ward_dropdown_race)
-    st.altair_chart(ward_dropdown_rent_own)
-    st.altair_chart(ward_dropdown_moving)
-    st.altair_chart(ward_dropdown_income)
-    
-    st.header('')
-    st.markdown('Here are some average responses by ward:')
+    st.markdown('Average ratings of various aspects of living in Somerville by ward:')
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(ward_housing_cost)
@@ -299,6 +285,44 @@ if navigation == 'Ward':
     with col2:
         st.altair_chart(ward_streets_sidewalks)
         st.altair_chart(ward_beauty)
+    st.header('')
+    st.subheader('Explore survey data by ward:')
+    ward_navigation = st.selectbox('Choose a survey question to explore by ward', (
+        'How satisfied are you with Somerville as a place to live?',
+        'How satisfied are you with your neighborhood?',
+        'Do you feel the City is headed in the right direction or is on the wrong track?',
+        'How would you rate the maintenance of streets and sidewalks?',
+        'How safe do you feel crossing a busy street in Somerville?',
+        'How convenient is it for you to get where you want to go?',
+        'How safe do you feel walking in your neighborhood at night?',
+        'Age', 'Race', 'Describe your housing status (rent/own)',
+        'Do you plan to move away from Somerville in the next two years?', 'Income')) 
+     if ward_navigation == 'How satisfied are you with Somerville as a place to live?':
+        st.altair_chart(ward_dropdown_satis)
+    if ward_navigation == 'How satisfied are you with your neighborhood?':
+        st.altair_chart(ward_dropdown_neighborhood_satis)
+    if ward_navigation == 'Do you feel the City is headed in the right direction or is on the wrong track?':
+        st.altair_chart(ward_dropdown_right_direction)
+    if ward_navigation == 'How would you rate the maintenance of streets and sidewalks?':
+        st.altair_chart(ward_dropdown_streets_sidewalks)
+    if ward_navigation == 'How safe do you feel crossing a busy street in Somerville?':
+        st.altair_chart(ward_dropdown_street_crossing)
+    if ward_navigation == 'How convenient is it for you to get where you want to go?':
+        st.altair_chart(ward_dropdown_convenient_go)
+    if ward_navigation == 'How safe do you feel walking in your neighborhood at night?':
+        st.altair_chart(ward_dropdown_safe_at_night)
+    if ward_navigation == 'Age':
+        st.altair_chart(ward_dropdown_age)
+    if ward_navigation == 'Race':
+        st.altair_chart(ward_dropdown_race)
+    if ward_navigation == 'Describe your housing status (rent/own)':
+        st.altair_chart(ward_dropdown_rent_own)
+    if ward_navigation == 'Do you plan to move away from Somerville in the next two years?':
+        st.altair_chart(ward_dropdown_moving)
+    if ward_navigation == 'Income':
+        st.altair_chart(ward_dropdown_income)
+    
+
     
     
 if navigation == 'Housing cost':
