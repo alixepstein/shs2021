@@ -153,7 +153,7 @@ ward_dropdown_convenient_go = alt.Chart(df).mark_bar().encode(
 
 #dropdown - ward - feeling of safety at night
 ward_dropdown_safe_at_night = alt.Chart(df).mark_bar().encode(
-    alt.X('11_safe_at_night:Q', title = 'How safe do you feel at night?'),
+    alt.X('11_safe_at_night:O', title = 'How safe do you feel at night?'),
     alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
