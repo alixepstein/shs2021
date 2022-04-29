@@ -58,8 +58,8 @@ income_satis_input_dropdown = alt.binding_select(options = income_categories)
 income_satis_selection = alt.selection_single(fields=['d9_income'], bind=income_satis_input_dropdown, name='Income')
 
 income_dropdown_satis = alt.Chart(df).mark_bar(size = 30).encode(
-    alt.X('3_satisfied_somerville', sort = income_categories, title = 'Satisfaction with living in Somerville'),
-    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    alt.X('3_satisfied_somerville:N', sort = income_categories, title = 'Satisfaction with living in Somerville'),
+    alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #RACE
