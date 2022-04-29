@@ -89,19 +89,19 @@ ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
 #rating of maintenance of streets and sidewalks by ward
 ward_streets_sidewalks = alt.Chart(df_ward).mark_bar().encode(
     alt.X('Ward:N', axis=alt.Axis(format='d')),
-    alt.Y('avg_streets_sidewalks_ward:Q', title = 'rating of maintenance of streets/sidewalks', scale=alt.Scale(domain=(0, 5))
+    alt.Y('avg_streets_sidewalks_ward:Q', title = 'rating of maintenance of streets/sidewalks')
 ).properties(title = 'Rating of maintenance of streets/sidewalks by ward')
 
 #rating of feeling of safety when walking at night by ward
 ward_safe_night = alt.Chart(df_ward).mark_bar().encode(
     alt.X('Ward:N', axis=alt.Axis(format='d')),
-    alt.Y('avg_safe_night_ward:Q', title = 'How safe do you feel at night?', scale=alt.Scale(domain=(0, 10))
+    alt.Y('avg_safe_night_ward:Q', title = 'How safe do you feel at night?')
 ).properties(title = 'How safe people feel at night by ward')
 
 #rating of beauty of neighborhood by ward
 ward_beauty = alt.Chart(df_ward).mark_bar().encode(
     alt.X('Ward:N', axis=alt.Axis(format='d')),
-    alt.Y('avg_neighborhood_beauty_ward:Q', title = 'Rating of neighborhood beauty', scale=alt.Scale(domain=(0, 10))
+    alt.Y('avg_neighborhood_beauty_ward:Q', title = 'Rating of neighborhood beauty')
 ).properties(title = 'Rating of neighborhood beauty by ward')
 
 
