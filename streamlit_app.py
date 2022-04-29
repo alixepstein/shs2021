@@ -79,6 +79,7 @@ satis_gender = alt.Chart(df_gender).mark_bar().encode(
 #WARD
 
 df_ward = df[df['Ward'] != 'No Answer Given']
+ward_list = [1,2,3,4,5,6,7]
 
 #rating of housing cost by ward
 ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
@@ -102,6 +103,14 @@ ward_beauty = alt.Chart(df_ward).mark_bar().encode(
     alt.X('Ward:N'),
     alt.Y('avg_neighborhood_beauty_ward', title = 'Rating of neighborhood beauty')).properties(
     title = 'Rating of neighborhood beauty by ward')
+
+#dropdown list - wards - satisfaction
+ward_satis_input_dropdown = alt.binding_select(options = ward_list)
+ward_satis_selection = alt.selection_single(fields=['Ward'], bind=input_dropdown, name='Somerville')
+ward_dropdown_satis = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('3_satisfied_somerville', title = 'Satisfaction with living in Somerville'),
+    alt.Y('count()', title = 'Number of responses per selected ward')).add_selection(
+    selection).transform_filter(selection)
 
 
 
@@ -186,10 +195,15 @@ if navigation == 'Race':
 if navigation == 'Ward':
     st.subheader('Ward')
     st.markdown('Somerville is divided into seven wards of roughly equal size. Here you can explore how survey results differed by which ward respondent lived in.')
-    st.text('')
+    st.header('')
     st.image('ward map.png')
     st.caption('This map shows average happiness ratings by ward. There was not an appreciable difference in happiness between wards. Ward 5 reported the highest average happiness at 7.6, while its neighbor, Ward 3, reported the lowest average happiness at 7.03. The range in happiness between wards was about half a point')   
-    st.text('')
+    st.header('')
+    st.altair_chart(ward_dropdown_satis)
+    #interactive charts
+    
+    st.header('')
+    st.markdown('Here are some average responses by ward:')
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(ward_housing_cost)
