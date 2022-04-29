@@ -81,7 +81,7 @@ satis_race = alt.Chart(df_satis_race).mark_bar().encode(
 df_gender = df[df['d1_gender'] != 'No Gender Given']
 satis_gender = alt.Chart(df_gender).mark_bar().encode(
     alt.X('d1_gender:N', title = 'Gender', sort = ['Male', 'Female', 'Gender Non_Conforming']),
-    alt.Y('avg_satis_gender', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by gender', height = 400)
+    alt.Y('avg_satis_gender:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by gender', height = 400)
 
 
 #WARD
@@ -110,7 +110,7 @@ ward_safe_night = alt.Chart(df_ward).mark_bar().encode(
 #rating of beauty of neighborhood by ward
 ward_beauty = alt.Chart(df_ward).mark_bar().encode(
     alt.X('Ward:N'),
-    alt.Y('avg_neighborhood_beauty_ward', title = 'Rating of neighborhood beauty')).properties(
+    alt.Y('avg_neighborhood_beauty_ward:Q', title = 'Rating of neighborhood beauty')).properties(
     title = 'Rating of neighborhood beauty by ward')
 
 #dropdown list - wards - satisfaction
@@ -123,68 +123,68 @@ ward_dropdown_satis = alt.Chart(df_ward).mark_bar().encode(
 
 #dropdown - ward - satisfaction with your neighborhood
 ward_dropdown_neighborhood_satis = alt.Chart(df).mark_bar().encode(
-    alt.X('4_satisfied_neighborhood', title = 'Satisfaction with your neighborhood'),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('4_satisfied_neighborhood:Q', title = 'Satisfaction with your neighborhood'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - is somerville heading in the right direction
 ward_dropdown_right_direction = alt.Chart(df).mark_bar().encode(
-    alt.X('5_right_direction', title = 'Is Somerville heading in the right direction?'),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('5_right_direction:Q', title = 'Is Somerville heading in the right direction?'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - rating of maintenance of streets and sidewalks
 ward_dropdown_streets_sidewalks = alt.Chart(df).mark_bar().encode(
-    alt.X('6e_streets_sidewalks', title = 'Rating of maintenance of streets/sidewalks'),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('6e_streets_sidewalks:Q', title = 'Rating of maintenance of streets/sidewalks'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - feeling of safety crossing the street
 ward_dropdown_street_crossing = alt.Chart(df).mark_bar().encode(
-    alt.X('9_street_crossing', title = 'How safe do you feel crossing the street?'),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('9_street_crossing:Q', title = 'How safe do you feel crossing the street?'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - convenience going places
 ward_dropdown_convenient_go = alt.Chart(df).mark_bar().encode(
-    alt.X('10_convenient_go', title = 'How convenient is it go places?'),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('10_convenient_go:Q', title = 'How convenient is it go places?'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - feeling of safety at night
 ward_dropdown_safe_at_night = alt.Chart(df).mark_bar().encode(
-    alt.X('11_safe_at_night', title = 'How safe do you feel at night?'),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('11_safe_at_night:Q', title = 'How safe do you feel at night?'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - age
 ward_dropdown_age = alt.Chart(df).mark_bar().encode(
-    alt.X('d2_age', title = 'Age', bin = True),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('d2_age:Q', title = 'Age', bin = True),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - race
 ward_dropdown_race = alt.Chart(df).mark_bar().encode(
-    alt.X('d4_race', title = 'Race'),
+    alt.X('d4_race:N', title = 'Race'),
     alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - rent/own
 ward_dropdown_rent_own = alt.Chart(df).mark_bar().encode(
-    alt.X('d7_rent_own', title = 'Housing status'),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('d7_rent_own:N', title = 'Housing status'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - plans to move
 ward_dropdown_moving = alt.Chart(df).mark_bar().encode(
-    alt.X('d8a_moving', title = 'Plans to move'),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('d8a_moving:N', title = 'Plans to move'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - income
 ward_dropdown_income = alt.Chart(df).mark_bar().encode(
-    alt.X('d9_income', title = 'Income'),
-    alt.Y('count()', title = 'Number of responses per selected ward')
+    alt.X('d9_income:N', title = 'Income'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 
