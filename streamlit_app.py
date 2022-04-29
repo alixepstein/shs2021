@@ -108,8 +108,8 @@ ward_beauty = alt.Chart(df_ward).mark_bar().encode(
 ward_satis_input_dropdown = alt.binding_select(options = ward_list)
 ward_satis_selection = alt.selection_single(fields=['Ward'], bind=ward_satis_input_dropdown, name='Somerville')
 ward_dropdown_satis = alt.Chart(df_ward).mark_bar(size = 30).encode(
-    alt.X('3_satisfied_somerville', title = 'Satisfaction with living in Somerville'),
-    alt.Y('count()', title = 'Number of responses per selected ward')).add_selection(
+    alt.X('3_satisfied_somerville:Q', title = 'Satisfaction with living in Somerville'),
+    alt.Y('count():Q', title = 'Number of responses per selected ward')).add_selection(
     ward_satis_selection).transform_filter(ward_satis_selection)
 
 
