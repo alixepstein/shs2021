@@ -297,7 +297,7 @@ if navigation == 'Ward':
         'How safe do you feel walking in your neighborhood at night?',
         'Age', 'Race', 'Describe your housing status (rent/own)',
         'Do you plan to move away from Somerville in the next two years?', 'Income')) 
-     if ward_navigation == 'How satisfied are you with Somerville as a place to live?':
+    if ward_navigation == 'How satisfied are you with Somerville as a place to live?':
         st.altair_chart(ward_dropdown_satis)
     if ward_navigation == 'How satisfied are you with your neighborhood?':
         st.altair_chart(ward_dropdown_neighborhood_satis)
