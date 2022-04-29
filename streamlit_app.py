@@ -89,7 +89,7 @@ satis_gender = alt.Chart(df_gender).mark_bar().encode(
 #WARD
 
 df_ward = df[df['Ward'] != 'No Answer Given']
-ward_list = [1,2,3,4,5,6,7]
+ward_list = df['Ward'].unique()
 
 #rating of housing cost by ward
 ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
@@ -115,7 +115,7 @@ ward_beauty = alt.Chart(df_ward).mark_bar().encode(
     title = 'Rating of neighborhood beauty by ward')
 
 #dropdown list - wards - satisfaction
-ward_satis_input_dropdown = alt.binding_select(options = [1,2,3,4,5,6,7])
+ward_satis_input_dropdown = alt.binding_select(options = ward_list)
 ward_satis_selection = alt.selection_single(fields=['Ward'], bind=ward_satis_input_dropdown, name='Somerville')
 ward_dropdown_satis = alt.Chart(df_ward).mark_bar(size = 30).encode(
     alt.X('3_satisfied_somerville:Q', title = 'Satisfaction with living in Somerville'),
