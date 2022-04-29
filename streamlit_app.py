@@ -54,12 +54,11 @@ satis_income = alt.Chart(df.dropna()).mark_bar().encode(
     alt.Y('avg_satis_income:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by income', height = 400)
 
 #dropdown list - income - satisfaction
-income_categories = ['Less than $10,000', '$10,000 to $24,999', '$25,000 to $49,999', '$50,000 to 74,999', '$75,000 to $99,999', '$100,000 to $149,999', '$150,000 to 200,000', '$200,000 or more']
 income_satis_input_dropdown = alt.binding_select(options = income_categories)
 income_satis_selection = alt.selection_single(fields=['d9_income'], bind=income_satis_input_dropdown, name='Income')
 
 income_dropdown_satis = alt.Chart(df).mark_bar(size = 30).encode(
-    alt.X('3_satisfied_somerville', title = 'Satisfaction with living in Somerville'),
+    alt.X('3_satisfied_somerville', sort = income_categories, title = 'Satisfaction with living in Somerville'),
     alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
