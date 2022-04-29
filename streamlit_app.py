@@ -129,7 +129,7 @@ ward_dropdown_neighborhood_satis = alt.Chart(df).mark_bar().encode(
 
 #dropdown - ward - is somerville heading in the right direction
 ward_dropdown_right_direction = alt.Chart(df).mark_bar().encode(
-    alt.X('5_right_direction:Q', title = 'Is Somerville heading in the right direction?'),
+    alt.X('5_right_direction:N', title = 'Is Somerville heading in the right direction?'),
     alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
