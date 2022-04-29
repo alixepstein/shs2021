@@ -106,9 +106,34 @@ ward_beauty = alt.Chart(df_ward).mark_bar().encode(
 
 
 
+
+#RENTING OWNING HOUSING COST CONCERNS
+
+#satisfaction by rent/own status
+avg_rent_own_satis = [
+    ['Rent', 7.312757],
+    ['Own', 7.510204]]
+df_rent_own_satis = pd.DataFrame(avg_rent_own_satis, columns=['Housing Status', 'Satisfaction'])
+rent_own_satis = alt.Chart(df_rent_own_satis).mark_bar().encode(
+    alt.X('Satisfaction:Q', title = None),
+    alt.Y('Housing Status:N')).properties(height=50)
+
+#satisfaction by plans to move
+avg_moving_satis = [
+    ['Planning to Move', 6.447447],
+    ['No Plan to Move', 8.031304]]
+df_moving_satis = pd.DataFrame(avg_moving_satis,columns=['Planning to Move','Satisfaction'])
+moving_satis = alt.Chart(df_moving_satis).mark_bar().encode(
+    alt.X('Satisfaction:Q', title = 'Satisfaction', scale = alt.Scale(domain = (0,8))),
+    alt.Y('Planning to Move:N'))
+
+
+
+
+
 #NAVIGATION SIDEBAR
 
-navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall trends', 'Age', 'Gender', 'Income', 'Race', 'Ward')) 
+navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall trends', 'Age', 'Gender', 'Income', 'Race', 'Ward', 'Housing cost')) 
 
 if navigation == 'Introduction':
     
@@ -163,6 +188,7 @@ if navigation == 'Ward':
     st.markdown('Some description')
     st.text('')
     st.image('ward map.png')
+    st.caption('This map shows average happiness ratings by ward. There was not an appreciable difference in happiness between wards. Ward 5 reported the highest average happiness at 7.6, while its neighbor, Ward 3, reported the lowest average happiness at 7.03. The range in happiness between wards was about half a point')
     st.text('')
     col1, col2 = st.columns(2)
     with col1:
@@ -172,27 +198,16 @@ if navigation == 'Ward':
         st.altair_chart(ward_streets_sidewalks)
         st.altair_chart(ward_beauty)
     
+    
+if navigation == 'Housing cost':
+    st.subheader('Housing cost, renting, owning, and other concerns')
+    st.markdown('Some description')
+    st.text('')
+    
+    
+    
 else:
     pass
 
 
-#RENTING OWNING HOUSING COST CONCERNS
-
-#satisfaction by rent/own status
-avg_rent_own_satis = [
-    ['Rent', 7.312757],
-    ['Own', 7.510204]]
-df_rent_own_satis = pd.DataFrame(avg_rent_own_satis, columns=['Housing Status', 'Satisfaction'])
-rent_own_satis = alt.Chart(df_rent_own_satis).mark_bar().encode(
-    alt.X('Satisfaction:Q', title = None),
-    alt.Y('Housing Status:N')).properties(height=50)
-
-#satisfaction by plans to move
-avg_moving_satis = [
-    ['Planning to Move', 6.447447],
-    ['No Plan to Move', 8.031304]]
-df_moving_satis = pd.DataFrame(avg_moving_satis,columns=['Planning to Move','Satisfaction'])
-moving_satis = alt.Chart(df_moving_satis).mark_bar().encode(
-    alt.X('Satisfaction:Q', title = 'Satisfaction', scale = alt.Scale(domain = (0,8))),
-    alt.Y('Planning to Move:N'))
     
