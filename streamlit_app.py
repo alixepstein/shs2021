@@ -89,7 +89,8 @@ satis_gender = alt.Chart(df_gender).mark_bar().encode(
 #WARD
 
 df_ward = df[df['Ward'] != 'No Answer Given']
-ward_list = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+ward_list = list(df_ward['Ward'].unique())
+ward_list.sort()
 
 #rating of housing cost by ward
 ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
