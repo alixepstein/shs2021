@@ -87,10 +87,11 @@ ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
 ).properties(title = 'Rating of housing cost by ward')
 
 #rating of maintenance of streets and sidewalks by ward
-#ward_streets_sidewalks = alt.Chart(df_ward).mark_bar().encode(
- #   alt.X('Ward:N', axis=alt.Axis(format='d')),
-  #  alt.Y('avg_streets_sidewalks_ward', title = 'rating of maintenance of streets/sidewalks')
-#).properties(title = 'Rating of maintenance of streets/sidewalks by ward')
+
+ward_streets_sidewalks = alt.Chart(df_ward).mark_bar().encode(
+    alt.X('Ward:N', axis=alt.Axis(format='d')),
+    alt.Y('avg_streets_sidewalks_ward', title = 'rating of maintenance of streets/sidewalks')
+).properties(title = 'Rating of maintenance of streets/sidewalks by ward')
 
 #rating of feeling of safety when walking at night by ward
 ward_safe_night = alt.Chart(df_ward).mark_bar().encode(
