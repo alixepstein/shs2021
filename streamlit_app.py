@@ -330,6 +330,9 @@ if navigation == 'Age':
     st.subheader('Age')
     st.markdown('Some description')
     st.altair_chart(satis_over_age)
+    st.header('')
+    st.markdown('Description of how to use responsive bins')
+    st.altair_chart(age_bin_brush)
     
 if navigation == 'Income':
     st.subheader('Income')
