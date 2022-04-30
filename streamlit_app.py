@@ -306,7 +306,7 @@ avg_rent_own_satis = [
 df_rent_own_satis = pd.DataFrame(avg_rent_own_satis, columns=['Housing Status', 'Satisfaction'])
 rent_own_satis = alt.Chart(df_rent_own_satis).mark_bar().encode(
     alt.X('Satisfaction:Q', title = None),
-    alt.Y('Housing Status:N')).properties(height=50)
+    alt.Y('Housing Status:N'))
 
 #satisfaction by plans to move
 avg_moving_satis = [
