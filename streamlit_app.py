@@ -51,10 +51,10 @@ responses_age = alt.Chart(df).mark_bar().encode(
     alt.X('d2_age:Q', title = 'Age', bin = True),
     alt.Y('count():Q', title = 'Number of Responses'))
 age_bin_brush = alt.vconcat(
-    responses_age.encode(alt.X('d2_age:Q',bin=alt.Bin(
+    responses_age.encode(alt.X('d2_age:Q',title = 'Age', bin=alt.Bin(
         maxbins=30, extent=brush), axis=alt.Axis(
         format='d'),scale=alt.Scale(domain=brush))), responses_age.encode(
-        alt.X('d2_age:Q', bin=alt.Bin(maxbins=9)),).add_selection(brush))
+        alt.X('d2_age:Q', title = 'Age', bin=alt.Bin(maxbins=9)),).add_selection(brush))
 
 #INCOME
 
