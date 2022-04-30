@@ -61,6 +61,68 @@ income_dropdown_satis = alt.Chart(df).mark_bar(size = 30).encode(
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
+#dropdown - income - satisfaction with your neighborhood
+income_dropdown_neighborhood_satis = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('4_satisfied_neighborhood', title = 'Satisfaction with your neighborhood'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+#dropdown - income - is somerville heading in the right direction
+income_dropdown_right_direction = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('5_right_direction', title = 'Is Somerville heading in the right direction?'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+#dropdown - income - rating of maintenance of streets and sidewalks
+income_dropdown_streets_sidewalks = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('6e_streets_sidewalks', title = 'Rating of maintenance of streets/sidewalks'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+#dropdown - income - feeling of safety crossing the street
+income_dropdown_street_crossing = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('9_street_crossing', title = 'How safe do you feel crossing the street?'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+#dropdown - income - convenience going places
+income_dropdown_convenient_go = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('10_convenient_go', title = 'How convenient is it go places?'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+#dropdown - income - feeling of safety at night
+income_dropdown_safe_at_night = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('11_safe_at_night', title = 'How safe do you feel at night?'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+#dropdown - income - age
+income_dropdown_age = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('d2_age', title = 'Age'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+#dropdown - income - race
+income_dropdown_race = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('d4_race', title = 'Race'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+#dropdown - income - rent/own
+income_dropdown_rent_own = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('d7_rent_own', title = 'Housing status'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+#dropdown - income - plans to move
+income_dropdown_moving = alt.Chart(df).mark_bar(size = 30).encode(
+    alt.X('d8a_moving', title = 'Plans to move'),
+    alt.Y('count()', title = 'Number of responses per selected income')).add_selection(
+    income_satis_selection).transform_filter(income_satis_selection)
+
+
+
 #RACE
 
 #satisfaction by race
@@ -263,8 +325,40 @@ if navigation == 'Income':
     st.markdown('Some description')
     st.altair_chart(satis_income)
     st.header('')
-    st.altair_chart(income_dropdown_satis)
-    
+    income_navigation = st.selectbox('Choose a survey question to explore by ward', (
+        'How satisfied are you with Somerville as a place to live?',
+        'How satisfied are you with your neighborhood?',
+        'Do you feel the City is headed in the right direction or is on the wrong track?',
+        'How would you rate the maintenance of streets and sidewalks?',
+        'How safe do you feel crossing a busy street in Somerville?',
+        'How convenient is it for you to get where you want to go?',
+        'How safe do you feel walking in your neighborhood at night?',
+        'Age', 'Race', 'Describe your housing status (rent/own)',
+        'Do you plan to move away from Somerville in the next two years?', 'Income')) 
+    if income_navigation == 'How satisfied are you with Somerville as a place to live?':
+        st.altair_chart(income_dropdown_satis)
+    if income_navigation == 'How satisfied are you with your neighborhood?':
+        st.altair_chart(income_dropdown_neighborhood_satis)
+    if income_navigation == 'Do you feel the City is headed in the right direction or is on the wrong track?':
+        st.altair_chart(income_dropdown_right_direction)
+    if income_navigation == 'How would you rate the maintenance of streets and sidewalks?':
+        st.altair_chart(income_dropdown_streets_sidewalks)
+    if income_navigation == 'How safe do you feel crossing a busy street in Somerville?':
+        st.altair_chart(income_dropdown_street_crossing)
+    if income_navigation == 'How convenient is it for you to get where you want to go?':
+        st.altair_chart(income_dropdown_convenient_go)
+    if income_navigation == 'How safe do you feel walking in your neighborhood at night?':
+        st.altair_chart(income_dropdown_safe_at_night)
+    if income_navigation == 'Age':
+        st.altair_chart(income_dropdown_age)
+    if income_navigation == 'Race':
+        st.altair_chart(income_dropdown_race)
+    if income_navigation == 'Describe your housing status (rent/own)':
+        st.altair_chart(income_dropdown_rent_own)
+    if income_navigation == 'Do you plan to move away from Somerville in the next two years?':
+        st.altair_chart(income_dropdown_moving)
+
+        
 if navigation == 'Race':
     st.subheader('Race')
     st.markdown('Some description')
