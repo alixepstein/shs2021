@@ -62,61 +62,61 @@ income_dropdown_satis = alt.Chart(df).mark_bar(size = 30).encode(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - satisfaction with your neighborhood
-income_dropdown_neighborhood_satis = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_neighborhood_satis = alt.Chart(df).mark_bar().encode(
     alt.X('4_satisfied_neighborhood:Q', title = 'Satisfaction with your neighborhood'),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - is somerville heading in the right direction
-income_dropdown_right_direction = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_right_direction = alt.Chart(df).mark_bar().encode(
     alt.X('5_right_direction:N', title = 'Is Somerville heading in the right direction?'),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - rating of maintenance of streets and sidewalks
-income_dropdown_streets_sidewalks = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_streets_sidewalks = alt.Chart(df).mark_bar().encode(
     alt.X('6e_streets_sidewalks:Q', title = 'Rating of maintenance of streets/sidewalks'),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - feeling of safety crossing the street
-income_dropdown_street_crossing = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_street_crossing = alt.Chart(df).mark_bar().encode(
     alt.X('9_street_crossing:Q', title = 'How safe do you feel crossing the street?'),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - convenience going places
-income_dropdown_convenient_go = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_convenient_go = alt.Chart(df).mark_bar().encode(
     alt.X('10_convenient_go:Q', title = 'How convenient is it go places?'),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - feeling of safety at night
-income_dropdown_safe_at_night = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_safe_at_night = alt.Chart(df).mark_bar().encode(
     alt.X('11_safe_at_night:Q', title = 'How safe do you feel at night?'),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - age
-income_dropdown_age = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_age = alt.Chart(df).mark_bar().encode(
     alt.X('d2_age:Q', title = 'Age', bin = True),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - race
-income_dropdown_race = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_race = alt.Chart(df).mark_bar().encode(
     alt.X('d4_race:N', title = 'Race'),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - rent/own
-income_dropdown_rent_own = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_rent_own = alt.Chart(df).mark_bar().encode(
     alt.X('d7_rent_own:N', title = 'Housing status'),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
 
 #dropdown - income - plans to move
-income_dropdown_moving = alt.Chart(df).mark_bar(size = 30).encode(
+income_dropdown_moving = alt.Chart(df).mark_bar().encode(
     alt.X('d8a_moving:N', title = 'Plans to move'),
     alt.Y('count():Q', title = 'Number of responses per selected income')).add_selection(
     income_satis_selection).transform_filter(income_satis_selection)
