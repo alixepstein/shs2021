@@ -45,6 +45,17 @@ nabin = bin = alt.Chart(df).mark_line().encode(
     alt.Y('avg_satis_age:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by age')
 satis_over_age = yabin + nabin
 
+#ages with responsive bins
+brush = alt.selection_interval(encodings=['x'])
+responses_age = alt.Chart(df).mark_bar().encode(
+    alt.X('d2_age:Q', title = 'Age', bin = True),
+    alt.Y('count():Q', title = 'Number of Responses'))
+age_bin_brush = alt.vconcat(
+    responses_age.encode(alt.X('d2_age:Q',bin=alt.Bin(
+        maxbins=30, extent=brush), axis=alt.Axis(
+        format='d'),scale=alt.Scale(domain=brush))), responses_age.encode(
+        alt.X('d2_age:Q', bin=alt.Bin(maxbins=9)),).add_selection(brush))
+
 #INCOME
 
 #satisfaction by income
