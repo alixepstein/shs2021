@@ -660,10 +660,7 @@ if navigation == 'Housing cost':
     if rent_navigation == 'Living with children under 18':
         st.altair_chart(move_children)
 
-    
     st.image(wordmap.png)
-
-
     
     
 else:
