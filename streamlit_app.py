@@ -339,7 +339,7 @@ if navigation == 'Income':
     st.markdown('Some description')
     st.altair_chart(satis_income)
     st.header('')
-    income_navigation = st.selectbox('Choose a survey question to explore by ward', (
+    income_navigation = st.selectbox('Choose a survey question to explore by income bracket', (
         'How satisfied are you with Somerville as a place to live?',
         'How satisfied are you with your neighborhood?',
         'Do you feel the City is headed in the right direction or is on the wrong track?',
