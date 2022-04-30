@@ -652,13 +652,13 @@ if navigation == 'Housing cost':
     moving_navigation = st.selectbox('Explore how demographic factors are related to plans to move away from Somerville in the next two years:', (
         'Income', 'Race', 'Age', 'Living with children under 18',)) 
     if rent_navigation == 'Income':
-    st.altair_chart(move_income)
+        st.altair_chart(move_income)
     if rent_navigation == 'Race':
-    st.altair_chart(move_race)
+        st.altair_chart(move_race)
     if rent_navigation == 'Age':
-    st.altair_chart(move_age)
+        st.altair_chart(move_age)
     if rent_navigation == 'Living with children under 18':
-    st.altair_chart(move_children)
+        st.altair_chart(move_children)
 
     
     st.image(wordmap)
