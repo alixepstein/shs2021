@@ -661,7 +661,7 @@ if navigation == 'Housing cost':
         st.altair_chart(move_children)
 
     
-    st.image(wordmap)
+    st.image(wordmap.png)
 
 
     
