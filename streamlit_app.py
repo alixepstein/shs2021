@@ -34,6 +34,38 @@ right_direction = alt.Chart(df_right_direction).mark_bar(size = 35).encode(
     alt.X('5_right_direction', title = None),
     alt.Y('count()', title = 'Number of responses')).properties(width = 200)
 
+#overall averages
+total_average_order = ['Availability of information about city services',  
+    'How safe do you feel at night', 'Appearance of neighborhood parks and squares', 
+    'Satisfied with life', 'Satisfied with neighborhood', 
+    'Satisfaction with condition of housing', 'Satisfied living in Somerville',
+    'Availability of social events', 'Happy right now', 'Ability to access city services',
+    'How convenient to get where you want to go', 'Beauty of neighborhood',
+    'Quality of public schools', 'Trust in the local police', 'How safe you feel crossing the street',
+    'Maintenance of streets and sidewalks', 'Cost of housing']
+total_averages = [
+    ['Happy right now', 7.305296/10],
+    ['Satisfied with life', 7.619543/10],
+    ['Satisfied living in Somerville', 7.372141/10],
+    ['Satisfied with neighborhood', 7.569072/10],
+    ['Availability of information about city services', 3.940252/5],
+    ['Cost of housing', 2.115589/5],
+    ['Quality of public schools', 3.407947/5],
+    ['Trust in the local police', 3.379421/5],
+    ['Maintenance of streets and sidewalks', 2.986472/5],
+    ['Availability of social events', 3.651982/5],
+    ['How safe you feel crossing the street', 6.698035/10],
+    ['How convenient to get where you want to go', 7.188017/10],
+    ['How safe do you feel at night', 7.746082/10],
+    ['Appearance of neighborhood parks and squares', 7.637500/10],
+    ['Beauty of neighborhood', 7.064651/10],
+    ['Satisfaction with condition of housing', 7.492723/10],
+    ['Ability to access city services', 7.197611/10]]
+df_total_averages = pd.DataFrame(total_averages,columns=['Question','Rating'])
+total_averages_chart = alt.Chart(df_total_averages).mark_bar().encode(
+    alt.X('Rating:Q', scale=alt.Scale(domain=(0, 1))),
+    alt.Y('Question:N', sort = total_average_order)).properties(title = 'Average ratings')
+
 #AGE
 
 #satisfaction by age - binned (smooth) average line and unbinned (jagged) average line
@@ -318,6 +350,8 @@ if navigation == 'Overall trends':
     st.text('')
     st.markdown('Overall response to question "Is Somerville heading in the right direction or on the wrong track?"')
     st.altair_chart(right_direction)
+    st.markdown('Average ratings of various aspects of life in Somerville (normalized to a scale of 0-1):')
+    st.altair_chart(total_averages_chart)
     
     
     
