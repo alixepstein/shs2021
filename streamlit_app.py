@@ -483,6 +483,72 @@ rent_language = alt.Chart(df_language_rent).mark_bar().encode(
 
 
 
+#WHO ANSWERED THE SURVEY?
+
+#ward
+responses_ward = alt.Chart(df_ward).mark_bar().encode(
+    alt.Y('Ward:O', title = 'Ward'),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#survey language
+df_lang = df[df['survey_language'] != 'No Answer Given']
+responses_language = alt.Chart(df_lang).mark_bar().encode(
+    alt.Y('survey_language:N', title = 'Survey Language', sort = ['English', 'Spanish', 'Portuguese', 'Haitian Creole', 'Nepali']),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#gender
+responses_gender = alt.Chart(df).mark_bar().encode(
+    alt.Y('d1_gender:N', title = 'Gender', sort = ['Female', 'Male', 'No Gender Given', 'Gender Non_Conforming']),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#age
+responses_age = alt.Chart(df).mark_bar().encode(
+    alt.Y('d2_age:Q', title = 'Age', bin = True),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#race
+responses_race = alt.Chart(df).mark_bar().encode(
+    alt.Y('d4_race:N', title = 'Race', sort = ['White', 'Asian', 'No Race Given', 'Hispanic or Latino', 'Black or African American Alone, Not Hispanic or Latino', 'Two or More Races, Not Hispanic or Latino', 'Some Other Race alone, Not Hispanic or Latino']),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#disability
+responses_disability = alt.Chart(df).mark_bar().encode(
+    alt.Y('d5_disability:N', title = 'Disability Status', sort = ['No', 'Yes', 'No Answer Given']),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#living with children under 18
+responses_children = alt.Chart(df).mark_bar().encode(
+    alt.Y('d6_children:N', title = 'Child(ren) under 18', sort = ['No', 'Yes', 'No Answer Given']),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#rent or own
+responses_rent = alt.Chart(df).mark_bar().encode(
+    alt.Y('d7_rent_own:N', title = 'Housing Status', sort = ['Rent', 'Own', 'No Answer Given']),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#plans to move
+responses_moving = alt.Chart(df).mark_bar().encode(
+    alt.Y('d8a_moving:N', title = 'Plans to move', sort = ['No', 'Yes', 'No Answer Given']),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#income
+responses_income = alt.Chart(df).mark_bar().encode(
+    alt.Y('d9_income:N', title = 'Income', sort = income_categories),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#students
+responses_student = alt.Chart(df).mark_bar().encode(
+    alt.Y('d10_student:N', title = 'Student?', sort = ['No', 'Yes', 'No Answer Given']),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+#residence length
+responses_res_length = alt.Chart(df).mark_bar().encode(
+    alt.Y('d11_residence_length:Q', title = 'Length of residence in Somerville', bin = True),
+    alt.X('count():Q', title = 'Number of Responses'))
+
+
+
+
 
 
 #NAVIGATION SIDEBAR
