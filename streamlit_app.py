@@ -485,7 +485,6 @@ rent_language = alt.Chart(df_language_rent).mark_bar().encode(
 
 
 
-
 #NAVIGATION SIDEBAR
 
 navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall trends', 'Age', 'Gender', 'Income', 'Race', 'Ward', 'Housing cost')) 
@@ -637,6 +636,34 @@ if navigation == 'Housing cost':
     st.markdown('Some description')
     st.text('')
     
+    st.altair_chart(rent_own_satis)
+    st.altair_chart(moving_satis)
+    rent_navigation = st.selectbox('Explore how demographic factors are related to housing status (whether people rent or own their homes):', (
+        'Income', 'Race', 'Age', 'Survey Language',)) 
+    if rent_navigation == 'Income':
+        st.altair_chart(rent_income)
+    if rent_navigation == 'Race':
+        st.altair_chart(rent_race)
+    if rent_navigation == 'Age':
+        st.altair_chart(rent_age)
+    if rent_navigation == 'Survey Language':
+        st.altair_chart(rent_language)
+    
+    moving_navigation = st.selectbox('Explore how demographic factors are related to plans to move away from Somerville in the next two years:', (
+        'Income', 'Race', 'Age', 'Living with children under 18',)) 
+    if rent_navigation == 'Income':
+    st.altair_chart(move_income)
+    if rent_navigation == 'Race':
+    st.altair_chart(move_race)
+    if rent_navigation == 'Age':
+    st.altair_chart(move_age)
+    if rent_navigation == 'Living with children under 18':
+    st.altair_chart(move_children)
+
+    
+    st.image(wordmap)
+
+
     
     
 else:
