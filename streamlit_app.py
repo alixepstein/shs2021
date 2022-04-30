@@ -18,12 +18,12 @@ st.title('Somerville Happiness Survey 2021')
 #OVERALL
 
 #overall happiness
-overall_happiness = alt.Chart(df).mark_bar().encode(
+overall_happiness = alt.Chart(df).mark_bar(size = 20).encode(
     alt.X('1_happy_now:Q', title = 'On a scale of 0 to 10, how happy are you right now?'), 
     alt.Y('count():Q', title = 'Number of responses')).properties(title = 'Overall Happiness')
 
 #overall satisfaction with Somerville
-overall_satis = alt.Chart(df).mark_bar().encode(
+overall_satis = alt.Chart(df).mark_bar(size = 20).encode(
     alt.X('3_satisfied_somerville:Q', title = 'How satisfied are you with Somerville as a place to live?'),
     alt.Y('count():Q', title = 'Number of responses')).properties(
     title='Overall Satisfaction with Somerville')
