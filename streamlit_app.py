@@ -316,7 +316,7 @@ if navigation == 'Overall trends':
     with col2:
         st.altair_chart(overall_satis, use_container_width=True)
     st.text('')
-    st.markdown('Overall response to question is Somerville heading in the right direction or on the wrong track?')
+    st.markdown('Overall response to question "Is Somerville heading in the right direction or on the wrong track?"')
     st.altair_chart(right_direction)
     
     
