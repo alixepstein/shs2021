@@ -317,6 +317,17 @@ moving_satis = alt.Chart(df_moving_satis).mark_bar().encode(
     alt.X('Satisfaction:Q', title = 'Satisfaction', scale = alt.Scale(domain = (0,8))),
     alt.Y('Planning to Move:N'))
 
+df_rent_own = df[df['d7_rent_own'] != 'No Answer Given']
+moving_housing_status_horiz = alt.Chart(df_rent_own).mark_bar().encode(
+    alt.Y('d7_rent_own:N', title = 'Housing Status'),
+    alt.X('count():Q', title = 'Number of Responses'),
+    color = alt.Color('d8a_moving:N', legend = alt.Legend(title = 'Plan to leave Somerville')))
+moving_housing_status_vert = alt.Chart(df_rent_own).mark_bar().encode(
+    alt.X('d7_rent_own:N', title = 'Housing Status'),
+    alt.Y('count():Q', title = 'Number of Responses'),
+    color = alt.Color('d8a_moving:N', legend = alt.Legend(title = 'Plan to leave Somerville')))
+
+
 # rent or own by income
 income_rent_own = [['$200,000 or more', 'Own', 0.7388888888888889],
     ['$200,000 or more', 'Rent', 0.2611111111111111],
@@ -701,9 +712,14 @@ if navigation == 'Housing cost':
     st.subheader('Housing cost, renting, owning, and other concerns')
     st.markdown('Some description')
     st.text('')
+    col1, col2 = st.columns(2)
+    with col1:
+        st.altair_chart(rent_own_satis)
+        st.altair_chart(moving_satis)
+    with col2:
+        st.altair_chart(moving_housing_status_vert)
     
-    st.altair_chart(rent_own_satis)
-    st.altair_chart(moving_satis)
+    
     rent_navigation = st.selectbox('Explore how demographic factors are related to housing status (whether people rent or own their homes):', (
         'Income', 'Race', 'Age', 'Survey Language',)) 
     if rent_navigation == 'Income':
