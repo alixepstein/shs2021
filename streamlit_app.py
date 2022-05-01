@@ -714,8 +714,8 @@ if navigation == 'Housing cost':
     st.text('')
     col1, colspace, col2 = st.columns([5, 1, 5]) 
     with col1:
-        st.altair_chart(rent_own_satis)
-        st.altair_chart(moving_satis)
+        st.altair_chart(rent_own_satis, use_container_width=True)
+        st.altair_chart(moving_satis, use_container_width=True)
     with col2:
         st.altair_chart(moving_housing_status_vert)
     
