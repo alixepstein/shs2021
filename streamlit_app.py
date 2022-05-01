@@ -712,7 +712,7 @@ if navigation == 'Housing cost':
     st.subheader('Housing cost, renting, owning, and other concerns')
     st.markdown('Some description')
     st.text('')
-    col1, col2 = st.columns(2)
+    col1, colspace, col2 = st.columns([5, 1, 5]) 
     with col1:
         st.altair_chart(rent_own_satis)
         st.altair_chart(moving_satis)
