@@ -9,7 +9,7 @@ st.set_page_config(
     page_title="Somerville Happiness Survey 2021", page_icon="📊", initial_sidebar_state="expanded")
 st.image('shs banner.png')
 
-
+st.altair_chart(move_children)
 
 
 #CHARTS
