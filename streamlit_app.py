@@ -568,9 +568,9 @@ navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall 
 
 if navigation == 'Introduction':
     
-    st.markdown('Some description about the survey')
+    st.markdown('The city of Somerville, Massachusetts, has been conducting its happiness survey every other year since 2011. The survey measures overall happiness, as well as satisfaction with specific aspects of living in Somerville. The results of the survey influence city policy and planning. On this page you will find the results of the 2021 Somerville Happiness Survey, arranged to make them easy to explore.')
     
-    st.markdown('Some introduction to this is what the survey looked like')
+    st.markdown('The 2021 Somerville Happiness Survey was a two-page paper questionanaire, sent by standard mail to 5,000 households in five languages (English, Spanish, Portuguese, Haitian Creole, and Nepali) in June of 2021. The survey included 15 happiness/satisfaction questions and 12 demographic questions.')
     col1, col2 = st.columns(2)
     with col1:
         st.image('Somerville Happiness Survey 2021 English.jpg', caption = '1')
