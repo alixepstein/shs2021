@@ -749,7 +749,7 @@ if navigation == 'Housing cost':
     
 if navigation == 'Who answered the survey?':
    
-    st.altair_chart(age)
+    st.altair_chart(responses_age)
     st.markdown('Description of how to use responsive bins')
     st.altair_chart(age_bin_brush)
     
