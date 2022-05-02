@@ -702,14 +702,28 @@ if navigation == 'Housing cost':
     
     
 if navigation == 'Who answered the survey?':
-   
+    st.header('Demographic information showing who responded to the survey:')
+    st.header('')
+    st.subheader('Age')
+    st.markdown('Many respondents were 30-40 years old:')
     st.altair_chart(responses_age)
-    st.markdown('Description of how to use responsive bins')
+    st.markdown('Select a portion of the right-hand chart to see how many people of each individual age responded to the survey:')
     st.altair_chart(age_bin_brush)
-    
+    st.header('')
+    st.subheader('Ward')
+    st.markdown('The wards were all fairly well-represented:')
     st.altair_chart(responses_ward)
+    st.header('')
+    st.subheader('Survey Language')
+    st.markdown('Most people filled out their surveys in English:')
     st.altair_chart(responses_language)
+    st.header('')
+    st.subheader('Gender')
+    st.markdown('Many respondents were female:')
     st.altair_chart(responses_gender)
+    st.header('')
+    st.subheader('Race')
+    st.markdown('Most respondents were White:')
     st.altair_chart(responses_race)
     st.altair_chart(responses_disability)
     st.altair_chart(responses_children)
