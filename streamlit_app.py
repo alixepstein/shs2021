@@ -754,16 +754,16 @@ if navigation == 'Who answered the survey?':
     st.altair_chart(age_bin_brush)
     
     st.altair_chart(responses_ward)
-    st.altair_chart(language)
-    st.altair_chart(gender)
-    st.altair_chart(race)
-    st.altair_chart(disability)
-    st.altair_chart(children)
-    st.altair_chart(rent)
-    st.altair_chart(moving)
-    st.altair_chart(income)
-    st.altair_chart(student)
-    st.altair_chart(res_length)
+    st.altair_chart(responses_language)
+    st.altair_chart(responses_gender)
+    st.altair_chart(responses_race)
+    st.altair_chart(responses_disability)
+    st.altair_chart(responses_children)
+    st.altair_chart(responses_rent)
+    st.altair_chart(responses_moving)
+    st.altair_chart(responses_income)
+    st.altair_chart(responses_student)
+    st.altair_chart(responses_res_length)
     
 else:
     pass
