@@ -741,6 +741,7 @@ if navigation == 'Housing cost':
     if rent_navigation == 'Living with children under 18':
         st.altair_chart(move_children)
         
+        
     
     st.markdown('The question "Do you have plans to move away from Somerville in the next two years?" has a follow-up question on the survey: "If so, why?" This question is completely open-ended; respondents can write anything they like in a blank space. In the word cloud below we can see the overwhelming trend of price and affordability in reasons for leaving Somerville.')
     st.image('wordmap.png')
