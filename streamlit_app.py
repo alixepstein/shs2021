@@ -738,6 +738,8 @@ if navigation == 'Housing cost':
         st.altair_chart(move_age)
     if moving_navigation == 'Survey Language':
         st.altair_chart(move_children)
+        st.altair_chart(move_children)
+    st.header('')
 
         
         
