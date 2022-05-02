@@ -196,7 +196,7 @@ ward_list.sort()
 #rating of housing cost by ward
 ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
     alt.X('Ward:N'),
-    alt.Y('avg_housing_cost_ward:Q', title = 'rating of housing cost')).properties(title = 'Rating of housing cost by ward')transform_filter(
+    alt.Y('avg_housing_cost_ward:Q', title = 'rating of housing cost')).properties(title = 'Rating of housing cost by ward').transform_filter(
     'isValid(datum.avg_housing_cost_ward)')
 
 #rating of maintenance of streets and sidewalks by ward
