@@ -82,7 +82,7 @@ brush = alt.selection_interval(encodings=['x'])
 responses_age = alt.Chart(df).mark_bar().encode(
     alt.X('d2_age:Q', title = 'Age', bin = True),
     alt.Y('count():Q', title = 'Number of Responses'))
-age_bin_brush = alt.vconcat(
+age_bin_brush = alt.hconcat(
     responses_age.encode(alt.X('d2_age:Q',title = 'Age', bin=alt.Bin(
         maxbins=30, extent=brush), axis=alt.Axis(
         format='d'),scale=alt.Scale(domain=brush))), responses_age.encode(
@@ -431,22 +431,7 @@ rent_age = alt.Chart(df_age_rent).mark_bar().encode(
 age_bins = df_num.groupby(['d8a_moving', pd.cut(df_num['d2_age'], [0, 10, 20, 30, 40, 50, 60, 70, 80, 90])])
 age_bins.size().unstack()
 age_moving = [
-    ['10', 'Yes', .5],
-    ['10', 'No', .5],
-    ['20', 'Yes', 100/188],
-    ['20', 'No', 88/(188)],
-    ['30', 'Yes', 122/(133+122)],
-    ['30', 'No', 133/(133+122)],
-    ['40', 'Yes', 38/(101+38)],
-    ['40', 'No', 101/(101+38)],
-    ['50', 'Yes', 28/(92+28)],
-    ['50', 'No', 92/(92+28)],
-    ['60', 'Yes', 25/(89+25)],
-    ['60', 'No', 89/(89+25)],
-    ['70', 'Yes', 8/(57+8)],
-    ['70', 'No', 57/(57+8)],
-    ['80', 'Yes', 2/15],
-    ['80', 'No', 13/15],]
+    ['10', 'Yes', .5],['10', 'No', .5],['20', 'Yes', 100/188],['20', 'No', 88/(188)],['30', 'Yes', 122/(133+122)],['30', 'No', 133/(133+122)],['40', 'Yes', 38/(101+38)],['40', 'No', 101/(101+38)],['50', 'Yes', 28/(92+28)],['50', 'No', 92/(92+28)],['60', 'Yes', 25/(89+25)],['60', 'No', 89/(89+25)],['70', 'Yes', 8/(57+8)],['70', 'No', 57/(57+8)],['80', 'Yes', 2/15],['80', 'No', 13/15],]
 df_age_moving = pd.DataFrame(age_moving,columns=['Age', 'Plans to Move', 'Percentage'])
 move_age = alt.Chart(df_age_moving).mark_bar().encode(
     alt.X('Age:N'),
@@ -455,22 +440,7 @@ move_age = alt.Chart(df_age_moving).mark_bar().encode(
 
 #plans to move by income
 income_moving = [
-    ['$200,000 or more', 'No', 0.744318],
-    ['$200,000 or more', 'Yes', 0.255682],
-    ['$150,000 to $199,999', 'No', 0.514493],
-    ['$150,000 to $199,999', 'Yes', 0.485507],
-    ['$100,000 to $149,999', 'No', 0.573333],
-    ['$100,000 to $149,999', 'Yes', 0.426667],
-    ['$75,000 to $99,999', 'No', 0.612903],
-    ['$75,000 to $99,999', 'Yes', 0.387097],
-    ['$50,000 to $74,999', 'No', 0.571429],
-    ['$50,000 to $74,999', 'Yes', 0.428571],
-    ['$25,000 to $49,999', 'No', 0.697368],
-    ['$25,000 to $49,999', 'Yes', 0.302632],
-    ['$10,000 to $24,999', 'No', 0.727273],
-    ['$10,000 to $24,999', 'Yes', 0.272727],
-    ['Less than $10,000', 'No', 0.657143],
-    ['Less than $10,000', 'Yes', 0.342857]]
+    ['$200,000 or more', 'No', 0.744318],['$200,000 or more', 'Yes', 0.255682],['$150,000 to $199,999', 'No', 0.514493],['$150,000 to $199,999', 'Yes', 0.485507],['$100,000 to $149,999', 'No', 0.573333],['$100,000 to $149,999', 'Yes', 0.426667],['$75,000 to $99,999', 'No', 0.612903],['$75,000 to $99,999', 'Yes', 0.387097],['$50,000 to $74,999', 'No', 0.571429],['$50,000 to $74,999', 'Yes', 0.428571],['$25,000 to $49,999', 'No', 0.697368],['$25,000 to $49,999', 'Yes', 0.302632],['$10,000 to $24,999', 'No', 0.727273],['$10,000 to $24,999', 'Yes', 0.272727],['Less than $10,000', 'No', 0.657143],['Less than $10,000', 'Yes', 0.342857]]
 df_income_moving = pd.DataFrame(income_moving ,columns=['Income', 'Plans to Move', 'Percentage'])
 move_income = alt.Chart(df_income_moving).mark_bar().encode(
     alt.X('Income:N', sort = income_order),
@@ -480,12 +450,7 @@ move_income = alt.Chart(df_income_moving).mark_bar().encode(
 #rent or own by survey language
 df.groupby('survey_language')['d7_rent_own'].value_counts()
 language_rent_own = [
-    ['English', 'Own', 438/(438+464)],
-    ['English', 'Rent', 464/(438+464)],
-    ['Portuguese', 'Own', 3/11],
-    ['Portuguese', 'Rent', 8/11],
-    ['Spanish', 'Own', 7/24],
-    ['Spanish', 'Rent', 17/24]]
+    ['English', 'Own', 438/(438+464)],['English', 'Rent', 464/(438+464)],['Portuguese', 'Own', 3/11],['Portuguese', 'Rent', 8/11],['Spanish', 'Own', 7/24],['Spanish', 'Rent', 17/24]]
 df_language_rent = pd.DataFrame(language_rent_own,columns=['Language', 'Housing Status', 'Percentage'])
 rent_language = alt.Chart(df_language_rent).mark_bar().encode(
     alt.X('Language:N', sort = ['English', 'Spanish', 'Portuguese']),
