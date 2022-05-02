@@ -192,7 +192,8 @@ satis_gender = alt.Chart(df_gender).mark_bar().encode(
 df_ward = df[df['Ward'] != 'No Answer Given']
 ward_list = list(df_ward['Ward'].unique())
 ward_list.sort()
-df[['3_satisfied_somerville', '4_satisfied_neighborhood', '5_right_direction', '6e_streets_sidewalks', '9_street_crossing', '10_convenient_go', '11_safe_at_night', 'd2_age', 'd4_race', 'd7_rent_own', 'd8a_moving', 'd9_income']].dropna(inplace = True)
+df['3_satisfied_somerville'].dropna(inplace = True)
+df[['4_satisfied_neighborhood', '5_right_direction', '6e_streets_sidewalks', '9_street_crossing', '10_convenient_go', '11_safe_at_night', 'd2_age', 'd4_race', 'd7_rent_own', 'd8a_moving', 'd9_income']].dropna(inplace = True)
 
 #rating of housing cost by ward
 ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
@@ -220,7 +221,7 @@ ward_beauty = alt.Chart(df_ward).mark_bar().encode(
 #dropdown list - wards - satisfaction
 ward_satis_input_dropdown = alt.binding_select(options = ward_list)
 ward_satis_selection = alt.selection_single(fields=['Ward'], bind=ward_satis_input_dropdown, name='Somerville')
-ward_dropdown_satis = alt.Chart(df_ward.dropna()).mark_bar().encode(
+ward_dropdown_satis = alt.Chart(df_ward).mark_bar().encode(
     alt.X('3_satisfied_somerville:O', title = 'Satisfaction with living in Somerville'),
     alt.Y('count():Q', title = 'Number of responses per selected ward')).add_selection(
     ward_satis_selection).transform_filter(ward_satis_selection)
