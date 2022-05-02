@@ -190,6 +190,7 @@ satis_gender = alt.Chart(df_gender).mark_bar().encode(
 #WARD
 
 df_ward = df[df['Ward'] != 'No Answer Given']
+df_ward.fillna('No Answer Given, inplace = True)
 ward_list = list(df_ward['Ward'].unique())
 ward_list.sort()
 
