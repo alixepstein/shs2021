@@ -736,9 +736,9 @@ if navigation == 'Housing cost':
         st.altair_chart(move_race)
     if moving_navigation == 'Age':
         st.altair_chart(move_age)
-    if moving_navigation == 'Survey Language':
+    if moving_navigation == 'Living with children under 18':
         st.altair_chart(move_children)
-        st.altair_chart(move_children)
+
     st.header('')
 
         
