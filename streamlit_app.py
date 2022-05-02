@@ -192,8 +192,7 @@ satis_gender = alt.Chart(df_gender).mark_bar().encode(
 df_ward = df[df['Ward'] != 'No Answer Given']
 ward_list = list(df_ward['Ward'].unique())
 ward_list.sort()
-ward_dropdowns = ['3_satisfied_somerville', '4_satisfied_neighborhood', '5_right_direction', '6e_streets_sidewalks', '9_street_crossing', '10_convenient_go', '11_safe_at_night', 'd2_age', 'd4_race', 'd7_rent_own', 'd8a_moving', 'd9_income']
-df[[ward_dropdowns]] = df[[ward_dropdowns]].fillna(value='No Answer Given')
+df[['3_satisfied_somerville', '4_satisfied_neighborhood', '5_right_direction', '6e_streets_sidewalks', '9_street_crossing', '10_convenient_go', '11_safe_at_night', 'd2_age', 'd4_race', 'd7_rent_own', 'd8a_moving', 'd9_income']] = df[['3_satisfied_somerville', '4_satisfied_neighborhood', '5_right_direction', '6e_streets_sidewalks', '9_street_crossing', '10_convenient_go', '11_safe_at_night', 'd2_age', 'd4_race', 'd7_rent_own', 'd8a_moving', 'd9_income']].fillna(value='No Answer Given')
 
 #rating of housing cost by ward
 ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
