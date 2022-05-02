@@ -9,8 +9,11 @@ st.set_page_config(
     page_title="Somerville Happiness Survey 2021", page_icon="📊", initial_sidebar_state="expanded")
 st.image('shs banner.png')
 
+move_children = alt.Chart(df_children_moving).mark_bar().encode(
+    alt.X('Children yes/no:N'),
+    alt.Y('Percentage:Q', title = 'Percentage', axis=alt.Axis(format='%')),
+    color = alt.Color('Plan to Move Yes/No:N', legend = alt.Legend(title = 'Plans to move')))
 st.altair_chart(move_children)
-
 
 #CHARTS
 
