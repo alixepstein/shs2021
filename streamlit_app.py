@@ -249,7 +249,7 @@ ward_dropdown_street_crossing = alt.Chart(df_ward).mark_bar().encode(
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
 
 #dropdown - ward - convenience going places
-ward_dropdown_convenient_go = alt.Chart(df_ward).mark_bar(size = 20).encode(
+ward_dropdown_convenient_go = alt.Chart(df_ward).mark_bar(size = 30).encode(
     alt.X('10_convenient_go:O', title = 'How convenient is it go places?'),
     alt.Y('count():Q', title = 'Number of responses per selected ward')
     ).add_selection(ward_satis_selection).transform_filter(ward_satis_selection)
