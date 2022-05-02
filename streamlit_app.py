@@ -9,6 +9,13 @@ st.set_page_config(
     page_title="Somerville Happiness Survey 2021", page_icon="📊", initial_sidebar_state="expanded")
 st.image('shs banner.png')
 
+#plans to move by whether or not you live with children under 18
+children_moving = [
+    ['No children', 'No', 0.620081],
+    ['No children', 'Yes', 0.379919],
+    ['Yes children', 'No', 0.704918],
+    ['Yes children', 'Yes', 0.295082]]
+df_children_moving = pd.DataFrame(children_moving,columns=['Children yes/no', 'Plan to Move Yes/No', 'Percentage'])
 move_children = alt.Chart(df_children_moving).mark_bar().encode(
     alt.X('Children yes/no:N'),
     alt.Y('Percentage:Q', title = 'Percentage', axis=alt.Axis(format='%')),
