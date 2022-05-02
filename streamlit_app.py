@@ -196,8 +196,7 @@ ward_list.sort()
 #rating of housing cost by ward
 ward_housing_cost = alt.Chart(df_ward).mark_bar().encode(
     alt.X('Ward:N'),
-    alt.Y('avg_housing_cost_ward:Q', title = 'rating of housing cost')).properties(title = 'Rating of housing cost by ward').transform_filter(
-    'isValid(datum.avg_housing_cost_ward)')
+    alt.Y('avg_housing_cost_ward:Q', title = 'rating of housing cost')).properties(title = 'Rating of housing cost by ward')
 
 #rating of maintenance of streets and sidewalks by ward
 ward_streets_sidewalks = alt.Chart(df_ward).mark_bar().encode(
@@ -223,7 +222,8 @@ ward_satis_selection = alt.selection_single(fields=['Ward'], bind=ward_satis_inp
 ward_dropdown_satis = alt.Chart(df_ward).mark_bar().encode(
     alt.X('3_satisfied_somerville:O', title = 'Satisfaction with living in Somerville'),
     alt.Y('count():Q', title = 'Number of responses per selected ward')).add_selection(
-    ward_satis_selection).transform_filter(ward_satis_selection)
+    ward_satis_selection).transform_filter(ward_satis_selection).transform_filter(
+    'isValid(datum.3_satisfied_somerville)')
 
 #dropdown - ward - satisfaction with your neighborhood
 ward_dropdown_neighborhood_satis = alt.Chart(df_ward).mark_bar().encode(
