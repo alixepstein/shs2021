@@ -177,16 +177,16 @@ satis_race_chart = [
     ['Black', 7.259259]]
 df_satis_race = pd.DataFrame(satis_race_chart, columns=['Race', 'Satisfaction'])
 satis_race = alt.Chart(df_satis_race).mark_bar().encode(
-    alt.X('Race:N'),
-    alt.Y('Satisfaction:Q', title = None)).properties(title = 'Satisfaction living in Somerville by race')
+    alt.Y('Race:N'),
+    alt.X('Satisfaction:Q', title = None)).properties(title = 'Satisfaction living in Somerville by race')
 
 #GENDER
 
 #satisfaction by gender
 df_gender = df[df['d1_gender'] != 'No Gender Given']
 satis_gender = alt.Chart(df_gender).mark_bar().encode(
-    alt.X('d1_gender:N', title = 'Gender', sort = ['Male', 'Female', 'Gender Non_Conforming']),
-    alt.Y('avg_satis_gender:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by gender', height = 400)
+    alt.Y('d1_gender:N', title = 'Gender', sort = ['Male', 'Female', 'Gender Non_Conforming']),
+    alt.X('avg_satis_gender:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by gender', height = 400)
 
 
 #WARD
