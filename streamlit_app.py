@@ -720,7 +720,7 @@ if navigation == 'Housing cost':
         st.altair_chart(moving_satis, use_container_width=True)
     with col2:
         st.altair_chart(moving_housing_status_vert)
-    
+    st.markdown('What can we learn about who owns and who rents in Somerville, and why people who rent are more likely to leave the city?')
     
     rent_navigation = st.selectbox('Explore how demographic factors are related to housing status (whether people rent or own their homes):', (
         'Income', 'Race', 'Age', 'Survey Language',)) 
@@ -743,7 +743,9 @@ if navigation == 'Housing cost':
         st.altair_chart(move_age)
     if rent_navigation == 'Living with children under 18':
         st.altair_chart(move_children)
-
+        
+    
+    st.markdown('The question "Do you have plans to move away from Somerville in the next two years?" has a follow-up question on the survey: "If so, why?" This question is completely open-ended; respondents can write anything they like in a blank space. In the word cloud below we can see the overwhelming trend of price and affordability in reasons for leaving Somerville.')
     st.image('wordmap.png')
     
     
