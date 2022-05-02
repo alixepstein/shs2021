@@ -734,11 +734,11 @@ if navigation == 'Housing cost':
         'Income', 'Race', 'Age', 'Living with children under 18',)) 
     if rent_navigation == 'Income':
         st.altair_chart(move_income)
-    if rent_navigation == 'Race':
+    elif rent_navigation == 'Race':
         st.altair_chart(move_race)
-    if rent_navigation == 'Age':
+    elif rent_navigation == 'Age':
         st.altair_chart(move_age)
-    if rent_navigation == 'Living with children under 18':
+    elif rent_navigation == 'Living with children under 18':
         st.altair_chart(move_children)
         
         
