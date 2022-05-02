@@ -709,8 +709,10 @@ if navigation == 'Ward':
     
     
 if navigation == 'Housing cost':
-    st.subheader('Housing cost, renting, owning, and other concerns')
-    st.markdown('Some description')
+    st.subheader('Housing cost, housing status, and leaving Somerville')
+    st.markdown('Of all the questions on the entire survey, "How would you rate the cost of housing?" is the only one to have an average response below neutral - that is, it is the only area in which Somerville citizens are, on average, very unhappy. Because this issue is such an outlier, we will explore it more in depth here.')
+    st.text('')
+    st.markdown('Although renters and owners are about equally satisfied with Somerville as a place to live, and although satisfaction with Somerville is a predictor for plans to stay in Somerville, renters have a far higher likelihood of having plans to leave Somerville within the next two years.')
     st.text('')
     col1, colspace, col2 = st.columns([5, 1, 5]) 
     with col1:
