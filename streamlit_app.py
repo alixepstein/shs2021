@@ -8,7 +8,7 @@ df = pd.read_csv('SHSdf.csv')
 st.set_page_config(
     page_title="Somerville Happiness Survey 2021", page_icon="📊", initial_sidebar_state="expanded")
 st.image('shs banner.png')
-cola, colb, colc = st.columns([4.5,1,5.5])
+cola, colb, colc = st.columns([4.6,1,5.5])
 with colb:
     st.subheader('2021')
 
