@@ -564,7 +564,7 @@ responses_res_length = alt.Chart(df).mark_bar().encode(
 
 #NAVIGATION SIDEBAR
 
-navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall trends', 'Age', 'Gender', 'Income', 'Race', 'Ward', 'Housing cost')) 
+navigation = st.sidebar.radio("Explore the data by:", ('Introduction', 'Overall trends', 'Demographics', 'Income', 'Ward', 'Housing cost', 'Who answered the survey?')) 
 
 if navigation == 'Introduction':
     
@@ -596,18 +596,20 @@ if navigation == 'Overall trends':
     
     
     
-if navigation == 'Gender': 
+if navigation == 'Demographics': 
     st.subheader('Gender')
     st.markdown('Some description')
     st.altair_chart(satis_gender)
     
-if navigation == 'Age':
     st.subheader('Age')
     st.markdown('Some description')
     st.altair_chart(satis_over_age)
     st.header('')
-    st.markdown('Description of how to use responsive bins')
-    st.altair_chart(age_bin_brush)
+    
+    st.subheader('Race')
+    st.markdown('Some description')
+    st.altair_chart(satis_race)
+    
     
 if navigation == 'Income':
     st.subheader('Income')
@@ -648,11 +650,6 @@ if navigation == 'Income':
         st.altair_chart(income_dropdown_moving)
 
         
-if navigation == 'Race':
-    st.subheader('Race')
-    st.markdown('Some description')
-    st.altair_chart(satis_race)
-    
 if navigation == 'Ward':
     st.subheader('Ward')
     st.markdown('Somerville is divided into seven wards of roughly equal size. Here you can explore how survey results differed by which ward respondent lived in.')
@@ -748,6 +745,25 @@ if navigation == 'Housing cost':
     st.markdown('The question "Do you have plans to move away from Somerville in the next two years?" has a follow-up question on the survey: "If so, why?" This question is completely open-ended; respondents can write anything they like in a blank space. In the word cloud below we can see the overwhelming trend of price and affordability in reasons for leaving Somerville.')
     st.image('wordmap.png')
     
+    
+    
+if navigation == 'Who answered the survey?':
+   
+    st.altair_chart(age)
+    st.markdown('Description of how to use responsive bins')
+    st.altair_chart(age_bin_brush)
+    
+    st.altair_chart(responses_ward)
+    st.altair_chart(language)
+    st.altair_chart(gender)
+    st.altair_chart(race)
+    st.altair_chart(disability)
+    st.altair_chart(children)
+    st.altair_chart(rent)
+    st.altair_chart(moving)
+    st.altair_chart(income)
+    st.altair_chart(student)
+    st.altair_chart(res_length)
     
 else:
     pass
