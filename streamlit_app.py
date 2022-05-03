@@ -449,18 +449,18 @@ rent_language = alt.Chart(df_language_rent).mark_bar().encode(
 #ward
 responses_ward = alt.Chart(df_ward).mark_bar().encode(
     alt.Y('Ward:O', title = 'Ward'),
-    alt.X('count():Q', title = 'Number of Responses'))
+    alt.X('count():Q', title = 'Number of Responses')).properties(width = '300')
 
 #survey language
 df_lang = df[df['survey_language'] != 'No Answer Given']
 responses_language = alt.Chart(df_lang).mark_bar().encode(
     alt.Y('survey_language:N', title = 'Survey Language', sort = ['English', 'Spanish', 'Portuguese', 'Haitian Creole', 'Nepali']),
-    alt.X('count():Q', title = 'Number of Responses'))
+    alt.X('count():Q', title = 'Number of Responses')).properties(width = '300')
 
 #gender
 responses_gender = alt.Chart(df).mark_bar().encode(
     alt.Y('d1_gender:N', title = 'Gender', sort = ['Female', 'Male', 'No Gender Given', 'Gender Non_Conforming']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your gender?')
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your gender?', width = '300')
 
 #age
 responses_age = alt.Chart(df).mark_bar().encode(
@@ -470,12 +470,12 @@ responses_age = alt.Chart(df).mark_bar().encode(
 #race
 responses_race = alt.Chart(df).mark_bar().encode(
     alt.Y('d4_race:N', title = 'Race', sort = ['White', 'Asian', 'No Race Given', 'Hispanic or Latino', 'Black or African American Alone, Not Hispanic or Latino', 'Two or More Races, Not Hispanic or Latino', 'Some Other Race alone, Not Hispanic or Latino']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your race?')
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your race?', width = '300')
 
 #disability
 responses_disability = alt.Chart(df).mark_bar().encode(
     alt.Y('d5_disability:N', title = 'Disability Status', sort = ['No', 'Yes', 'No Answer Given']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Do you identify as having a disability and/or physical impairment?')
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Do you identify as having a disability and/or physical impairment?', width = '300')
 
 #living with children under 18
 responses_children = alt.Chart(df).mark_bar().encode(
