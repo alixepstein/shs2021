@@ -55,17 +55,17 @@ total_averages_chart = alt.Chart(df_total_averages).mark_bar().encode(
 #satisfaction by age - binned (smooth) average line and unbinned (jagged) average line
 yabin = alt.Chart(df).mark_line().encode(
     alt.X('d2_age:Q', bin = True, title = 'Age in years'),
-    alt.Y('mean(avg_satis_age):Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by age', width = 400)
+    alt.Y('mean(avg_satis_age):Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by age', width = 350)
 nabin = bin = alt.Chart(df).mark_line().encode(
     alt.X('d2_age:Q', title = 'Age in years'),
-    alt.Y('avg_satis_age:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by age', width = 400)
+    alt.Y('avg_satis_age:Q', title = 'Satisfaction living in Somerville')).properties(title = 'Satisfaction living in Somerville by age', width = 350)
 satis_over_age = yabin + nabin
 
 #ages with responsive bins
 brush = alt.selection_interval(encodings=['x'])
 responses_age = alt.Chart(df).mark_bar().encode(
     alt.X('d2_age:Q', title = 'Age', bin = True),
-    alt.Y('count():Q', title = 'Number of Responses')).properties(width = 400)
+    alt.Y('count():Q', title = 'Number of Responses')).properties(width = 350)
 age_bin_brush = alt.hconcat(
     responses_age.encode(alt.X('d2_age:Q',title = 'Age', bin=alt.Bin(
         maxbins=30, extent=brush), axis=alt.Axis(
