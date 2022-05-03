@@ -35,16 +35,16 @@ right_direction = alt.Chart(df_right_direction).mark_bar(size = 35).encode(
     alt.Y('count()', title = 'Number of responses')).properties(width = 200)
 
 #overall averages
-total_average_order = ['Availability of information about city services',  
-    'How safe do you feel at night', 'Appearance of neighborhood parks and squares', 
-    'Satisfied with life', 'Satisfied with neighborhood', 
-    'Satisfaction with condition of housing', 'Satisfied living in Somerville',
-    'Availability of social events', 'Happy right now', 'Ability to access city services',
-    'How convenient to get where you want to go', 'Beauty of neighborhood',
-    'Quality of public schools', 'Trust in the local police', 'How safe you feel crossing the street',
-    'Maintenance of streets and sidewalks', 'Cost of housing']
+total_average_order = ['Rate the availability of information about city services',  
+    'How safe do you feel walking in your neighborhood at night?', 'Rate the appearance of parks and squares in your neighborhood', 
+    'How satisfied are you with your life in general?', 'How satisfied are you with your neighborhood?', 
+    'Rate the condition of your housing', 'How satisfied are you with Somerville as a place to live?',
+    'Rate the availability of social community events', 'How happy do you feel right now?', 'Rate your ability to access City services in the past year',
+    'How convenient is it for you to get where you want to go?', 'Rate the beauty or physical setting of your neighborhood',
+    'Rate the overall quality of public schools', 'Rate your trust in the local police', 'How safe do you feel crossing a busy street in Somerville?',
+    'Rate the maintenance of streets and sidewalks', 'Rate the cost of housing']
 total_averages = [
-    ['Happy right now', 7.305296/10],['Satisfied with life', 7.619543/10],['Satisfied living in Somerville', 7.372141/10],['Satisfied with neighborhood', 7.569072/10],['Availability of information about city services', 3.940252/5],['Cost of housing', 2.115589/5],['Quality of public schools', 3.407947/5],['Trust in the local police', 3.379421/5],['Maintenance of streets and sidewalks', 2.986472/5],['Availability of social events', 3.651982/5],['How safe you feel crossing the street', 6.698035/10],['How convenient to get where you want to go', 7.188017/10],['How safe do you feel at night', 7.746082/10],['Appearance of neighborhood parks and squares', 7.637500/10],['Beauty of neighborhood', 7.064651/10],['Satisfaction with condition of housing', 7.492723/10],['Ability to access city services', 7.197611/10]]
+    ['How happy do you feel right now?', 7.305296/10],['How satisfied are you with your life in general?', 7.619543/10],['How satisfied are you with Somerville as a place to live?', 7.372141/10],['How satisfied are you with your neighborhood?', 7.569072/10],['Rate the availability of information about city services', 3.940252/5],['Rate the cost of housing', 2.115589/5],['Rate the overall quality of public schools', 3.407947/5],['Rate your trust in the local police', 3.379421/5],['Rate the maintenance of streets and sidewalks', 2.986472/5],['Rate the availability of social community events', 3.651982/5],['How safe do you feel crossing a busy street in Somerville?', 6.698035/10],['How convenient is it for you to get where you want to go?', 7.188017/10],['How safe do you feel walking in your neighborhood at night?', 7.746082/10],['Rate the appearance of parks and squares in your neighborhood', 7.637500/10],['Rate the beauty or physical setting of your neighborhood', 7.064651/10],['Rate the condition of your housing', 7.492723/10],['Rate your ability to access City services in the past year', 7.197611/10]]
 df_total_averages = pd.DataFrame(total_averages,columns=['Question','Rating'])
 total_averages_chart = alt.Chart(df_total_averages).mark_bar().encode(
     alt.X('Rating:Q', scale=alt.Scale(domain=(0, 1))),
