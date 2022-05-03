@@ -48,7 +48,7 @@ total_averages = [
 df_total_averages = pd.DataFrame(total_averages,columns=['Question','Rating'])
 total_averages_chart = alt.Chart(df_total_averages).mark_bar().encode(
     alt.X('Rating:Q', scale=alt.Scale(domain=(0, 1))),
-    alt.Y('Question:N', sort = total_average_order)).properties(title = 'Average ratings', axis=alt.Axis(labelLimit=200))
+    alt.Y('Question:N', sort = total_average_order, axis=alt.Axis(labelLimit=200))).properties(title = 'Average ratings')
 #AGE
 
 #satisfaction by age - binned (smooth) average line and unbinned (jagged) average line
