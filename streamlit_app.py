@@ -531,7 +531,7 @@ if navigation == 'Introduction':
     
 if navigation == 'Overall trends':
     st.subheader('Overall trends')
-    st.markdown('Some description')
+
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(overall_happiness, use_container_width=True)
