@@ -737,7 +737,7 @@ else:
     pass
 
 with st.sidebar:
-    st.markdown("[![SomerStat](somerstat logo.png)](https://www.somervillema.gov/departments/mayors-office/somerstat)")
+    st.markdown("[![SomerStat]('somerstat logo.png')](https://www.somervillema.gov/departments/mayors-office/somerstat)")
 
 
     
