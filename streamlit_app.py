@@ -48,7 +48,7 @@ total_averages = [
 df_total_averages = pd.DataFrame(total_averages,columns=['Question','Rating'])
 total_averages_chart = alt.Chart(df_total_averages).mark_bar().encode(
     alt.X('Rating:Q', scale=alt.Scale(domain=(0, 1))),
-    alt.Y('Question:N', sort = total_average_order)).properties(title = 'Average ratings', padding = 200)
+    alt.Y('Question:N', sort = total_average_order)).properties(title = 'Average ratings', padding = 200, autosize=alt.AutoSizeParams(type='pad',contains='padding'))
 
 #AGE
 
