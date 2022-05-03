@@ -548,7 +548,7 @@ if navigation == 'Overall trends':
     
 if navigation == 'Demographics': 
     
-    st.markdown('People tend to be about equally satisfied with living in Somerville, regardless of demographics. The average satisfaction is around 7.5')
+    st.markdown('People tend to be about equally satisfied with living in Somerville, regardless of demographics.')
     
     
     st.subheader('Gender')
