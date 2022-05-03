@@ -547,17 +547,19 @@ if navigation == 'Overall trends':
     
     
 if navigation == 'Demographics': 
+    
+    st.subheader('People tend to be about equally satisfied with living in Somerville, regardless of demographics. The average satisfaction is around 7.5')
+    
+    
     st.subheader('Gender')
-    st.markdown('Some description')
     st.altair_chart(satis_gender)
     
     st.subheader('Age')
-    st.markdown('Some description')
+    st.markdown('The smoother line is averaged by age group, while the jagged line is taken by individual year.')
     st.altair_chart(satis_over_age)
     st.header('')
     
     st.subheader('Race')
-    st.markdown('Some description')
     st.altair_chart(satis_race)
     
     
