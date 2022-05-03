@@ -542,7 +542,7 @@ if navigation == 'Overall trends':
     st.markdown('Overall response to question "Is Somerville heading in the right direction or on the wrong track?"')
     st.altair_chart(right_direction)
     st.markdown('Average ratings of various aspects of life in Somerville (normalized to a scale of 0-1):')
-    st.altair_chart(total_averages_chart, use_container_width=False)
+    st.altair_chart(total_averages_chart, use_container_width=True)
     
     
     
