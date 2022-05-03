@@ -48,7 +48,7 @@ total_averages = [
 df_total_averages = pd.DataFrame(total_averages,columns=['Question','Rating'])
 total_averages_chart = alt.Chart(df_total_averages).mark_bar().encode(
     alt.X('Rating:Q', scale=alt.Scale(domain=(0, 1))),
-    alt.Y('Question:N', sort = total_average_order)).properties(title = 'Average ratings', width = 900)
+    alt.Y('Question:N', sort = total_average_order)).properties(title = 'Average ratings', width = 700)
 
 #AGE
 
@@ -542,7 +542,7 @@ if navigation == 'Overall trends':
     st.markdown('Overall response to question "Is Somerville heading in the right direction or on the wrong track?"')
     st.altair_chart(right_direction)
     st.markdown('Average ratings of various aspects of life in Somerville (normalized to a scale of 0-1):')
-    st.altair_chart(total_averages_chart, use_container_width=True)
+    st.altair_chart(total_averages_chart, use_container_width=False)
     
     
     
