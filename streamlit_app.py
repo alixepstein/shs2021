@@ -449,18 +449,18 @@ rent_language = alt.Chart(df_language_rent).mark_bar().encode(
 #ward
 responses_ward = alt.Chart(df_ward).mark_bar().encode(
     alt.Y('Ward:O', title = 'Ward'),
-    alt.X('count():Q', title = 'Number of Responses')).properties(width = 500)
+    alt.X('count():Q', title = 'Number of Responses')).properties(width = 550)
 
 #survey language
 df_lang = df[df['survey_language'] != 'No Answer Given']
 responses_language = alt.Chart(df_lang).mark_bar().encode(
     alt.Y('survey_language:N', title = 'Survey Language', sort = ['English', 'Spanish', 'Portuguese', 'Haitian Creole', 'Nepali']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(width = 500)
+    alt.X('count():Q', title = 'Number of Responses')).properties(width = 550)
 
 #gender
 responses_gender = alt.Chart(df).mark_bar().encode(
     alt.Y('d1_gender:N', title = 'Gender', sort = ['Female', 'Male', 'No Gender Given', 'Gender Non_Conforming']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your gender?', width = 500)
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your gender?', width = 550)
 
 #age
 responses_age = alt.Chart(df).mark_bar().encode(
@@ -470,42 +470,42 @@ responses_age = alt.Chart(df).mark_bar().encode(
 #race
 responses_race = alt.Chart(df).mark_bar().encode(
     alt.Y('d4_race:N', title = 'Race', sort = ['White', 'Asian', 'No Race Given', 'Hispanic or Latino', 'Black or African American Alone, Not Hispanic or Latino', 'Two or More Races, Not Hispanic or Latino', 'Some Other Race alone, Not Hispanic or Latino']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your race?', width = 500)
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your race?', width = 550)
 
 #disability
 responses_disability = alt.Chart(df).mark_bar().encode(
     alt.Y('d5_disability:N', title = 'Disability Status', sort = ['No', 'Yes', 'No Answer Given']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Do you identify as having a disability and/or physical impairment?', width = 500)
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Do you identify as having a disability and/or physical impairment?', width = 550)
 
 #living with children under 18
 responses_children = alt.Chart(df).mark_bar().encode(
     alt.Y('d6_children:N', title = 'Child(ren) under 18', sort = ['No', 'Yes', 'No Answer Given']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Do you have children age 18 or younger who live with you?')
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Do you have children age 18 or younger who live with you?', width = 550)
 
 #rent or own
 responses_rent = alt.Chart(df).mark_bar().encode(
     alt.Y('d7_rent_own:N', title = 'Housing Status', sort = ['Rent', 'Own', 'No Answer Given']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Describe your housing status in Somerville.')
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Describe your housing status in Somerville.', width = 550)
 
 #plans to move
 responses_moving = alt.Chart(df).mark_bar().encode(
     alt.Y('d8a_moving:N', title = 'Plans to move', sort = ['No', 'Yes', 'No Answer Given']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Do you plan to move away from Somerville in the next two years?')
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Do you plan to move away from Somerville in the next two years?', width = 550)
 
 #income
 responses_income = alt.Chart(df).mark_bar().encode(
     alt.Y('d9_income:N', title = 'Income', sort = income_categories),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your annual household income?')
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your annual household income?', width = 550)
 
 #students
 responses_student = alt.Chart(df).mark_bar().encode(
     alt.Y('d10_student:N', title = 'Student?', sort = ['No', 'Yes', 'No Answer Given']),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Are you a student?')
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'Are you a student?', width = 550)
 
 #residence length
 responses_res_length = alt.Chart(df).mark_bar().encode(
     alt.Y('d11_residence_length:Q', title = 'Length of residence in Somerville', bin = True),
-    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'How long have you lived in Somerville?')
+    alt.X('count():Q', title = 'Number of Responses')).properties(title = 'How long have you lived in Somerville?', width = 550)
 
 
 
