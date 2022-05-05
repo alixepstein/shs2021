@@ -314,21 +314,7 @@ moving_housing_status_vert = alt.Chart(df_rent_own).mark_bar().encode(
 
 # rent or own by income
 income_rent_own = [['$200,000 or more', 'Own', 0.7388888888888889],
-    ['$200,000 or more', 'Rent', 0.2611111111111111],
-    ['$150,000 to $199,999', 'Own', 0.4460431654676259],
-    ['$150,000 to $199,999', 'Rent', 0.5539568345323741],
-    ['$100,000 to $149,999', 'Own', 0.5],
-    ['$100,000 to $149,999', 'Rent', 0.5],
-    ['$75,000 to $99,999', 'Own', 0.43846153846153846],
-    ['$75,000 to $99,999', 'Rent', 0.5615384615384615],
-    ['$50,000 to $74,999', 'Own', 29/(29+80)],
-    ['$50,000 to $74,999', 'Rent', 80/(29+80)],
-    ['$25,000 to $49,999', 'Own', 28/(28+48)],
-    ['$25,000 to $49,999', 'Rent', 0.631578947368421],
-    ['$10,000 to $24,999', 'Own', 0.2807017543859649],
-    ['$10,000 to $24,999', 'Rent', 0.7192982456140351],
-    ['Less than $10,000', 'Own', 0.1935483870967742],
-    ['Less than $10,000', 'Rent', 0.8064516129032258]]
+    ['$200,000 or more', 'Rent', 0.2611111111111111],['$150,000 to $199,999', 'Own', 0.4460431654676259],['$150,000 to $199,999', 'Rent', 0.5539568345323741],['$100,000 to $149,999', 'Own', 0.5],['$100,000 to $149,999', 'Rent', 0.5],['$75,000 to $99,999', 'Own', 0.43846153846153846],['$75,000 to $99,999', 'Rent', 0.5615384615384615],['$50,000 to $74,999', 'Own', 29/(29+80)],['$50,000 to $74,999', 'Rent', 80/(29+80)],['$25,000 to $49,999', 'Own', 28/(28+48)],['$25,000 to $49,999', 'Rent', 0.631578947368421],['$10,000 to $24,999', 'Own', 0.2807017543859649],['$10,000 to $24,999', 'Rent', 0.7192982456140351],['Less than $10,000', 'Own', 0.1935483870967742],['Less than $10,000', 'Rent', 0.8064516129032258]]
 df_income_rent = pd.DataFrame(income_rent_own,columns=['Income', 'Housing Status', 'Total'])
 income_order = ['Less than $10,000', '$10,000 to $24,999', '$25,000 to $49,999', '$50,000 to $74,999',
     '$75,000 to $99,999', '$100,000 to $149,999', '$150,000 to $199,999', '$200,000 or more']
@@ -357,13 +343,7 @@ rent_race = alt.Chart(df_race_rent).mark_bar().encode(
 
 #plans to move by race
 race_moving = [['Asian', 'No', 0.656716],
-    ['Asian', 'Yes', 0.343284],
-    ['Black/African American', 'No', 0.612903],
-    ['Black/African American', 'Yes', 0.387097],
-    ['Hispanic/Latino', 'No', 0.580000],
-    ['Hispanic/Latino', 'Yes', 0.420000],
-    ['White', 'No', 0.648951],
-    ['White', 'Yes', 0.351049]]
+    ['Asian', 'Yes', 0.343284],['Black/African American', 'No', 0.612903],['Black/African American', 'Yes', 0.387097],['Hispanic/Latino', 'No', 0.580000],['Hispanic/Latino', 'Yes', 0.420000],['White', 'No', 0.648951],['White', 'Yes', 0.351049]]
 df_race_moving = pd.DataFrame(race_moving,columns=['Race', 'Plan to Move Yes/No', 'Percentage'])
 move_race = alt.Chart(df_race_moving).mark_bar().encode(
     alt.X('Race:N', sort = ['Asian', 'White', 'Black/African American', 'Hispanic/Latino']),
@@ -372,10 +352,7 @@ move_race = alt.Chart(df_race_moving).mark_bar().encode(
 
 #plans to move by whether or not you live with children under 18
 children_moving = [
-    ['No children', 'No', 0.620081],
-    ['No children', 'Yes', 0.379919],
-    ['Yes children', 'No', 0.704918],
-    ['Yes children', 'Yes', 0.295082]]
+    ['No children', 'No', 0.620081],['No children', 'Yes', 0.379919],['Yes children', 'No', 0.704918],['Yes children', 'Yes', 0.295082]]
 df_children_moving = pd.DataFrame(children_moving,columns=['Children yes/no', 'Plan to Move Yes/No', 'Percentage'])
 move_children = alt.Chart(df_children_moving).mark_bar().encode(
     alt.X('Children yes/no:N'),
