@@ -475,8 +475,8 @@ census_order = ['White', 'Asian', 'Hispanic or Latino', 'Two or More Races, Not 
 census_source = pd.DataFrame({'a': census_race,'b': census_race_totals})
 
 race_census = alt.Chart(census_source).mark_bar().encode(
-    alt.Y('a', sort = census_order, title = 'Population'),
-    alt.X('b', title = 'Race', axis=alt.Axis(labelLimit=400))).properties(title = '2020 Census Data', width = 550)
+    alt.Y('a', sort = census_order, axis=alt.Axis(labelLimit=400), title = 'Race'),
+    alt.X('b', title = 'Population')).properties(title = '2020 Census Data', width = 550)
 
 
 
