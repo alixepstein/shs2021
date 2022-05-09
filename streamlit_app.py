@@ -430,7 +430,7 @@ responses_age = alt.Chart(df).mark_bar().encode(
 
 #race
 responses_race = alt.Chart(df).mark_bar().encode(
-    alt.Y('d4_race:N', title = 'Race', sort = ['White', 'Asian', 'No Race Given', 'Hispanic or Latino', 'Black or African American Alone, Not Hispanic or Latino', 'Two or More Races, Not Hispanic or Latino', 'Some Other Race alone, Not Hispanic or Latino']),
+    alt.Y('d4_race:N', title = 'Race', axis=alt.Axis(labelLimit=400), sort = ['White', 'Asian', 'No Race Given', 'Hispanic or Latino', 'Black or African American Alone, Not Hispanic or Latino', 'Two or More Races, Not Hispanic or Latino', 'Some Other Race alone, Not Hispanic or Latino']),
     alt.X('count():Q', title = 'Number of Responses')).properties(title = 'What is your race?', width = 550)
 
 #disability
@@ -476,7 +476,7 @@ census_source = pd.DataFrame({'a': census_race,'b': census_race_totals})
 
 race_census = alt.Chart(census_source).mark_bar().encode(
     alt.Y('a', sort = census_order, title = 'Population'),
-    alt.X('b', title = 'Race')).properties(title = '2020 Census Data')
+    alt.X('b', title = 'Race', axis=alt.Axis(labelLimit=400))).properties(title = '2020 Census Data', width = 550)
 
 
 
