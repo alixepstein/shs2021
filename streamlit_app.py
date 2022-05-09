@@ -476,7 +476,7 @@ census_source = pd.DataFrame({'a': census_race,'b': census_race_totals})
 
 race_census = alt.Chart(census_source).mark_bar().encode(
     alt.Y('a', sort = census_order, title = 'Population'),
-    alt.X('b', title = 'Race'))
+    alt.X('b', title = 'Race')).properties(title = '2020 Census Data')
 
 
 
@@ -730,11 +730,8 @@ if navigation == 'Who answered the survey?':
     st.altair_chart(responses_res_length)
     st.header('')
     st.subheader('Census data shows where the survey oversampled:')
-    col1, colspace, col2 = st.columns([5, 1, 5]) 
-    with col1:
-        st.altair_chart(race_census, use_container_width=True)
-    with col2:
-        st.altair_chart(responses_race, use_container_width = True)
+    st.altair_chart(race_census)
+    st.altair_chart(responses_race)
     
 else:
     pass
