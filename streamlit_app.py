@@ -365,22 +365,7 @@ df_num['d2_age'] = pd.to_numeric(df_num['d2_age'])
 age_bins = df_num.groupby(['d7_rent_own', pd.cut(df_num['d2_age'], [0, 10, 20, 30, 40, 50, 60, 70, 80, 90])])
 age_bins.size().unstack()
 age_rent_own = [
-    ['10', 'Own', .5],
-    ['10', 'Rent', .5],
-    ['20', 'Own', 20/(189)],
-    ['20', 'Rent', 169/189],
-    ['30', 'Own', 92/(92+167)],
-    ['30', 'Rent', 167/(92+167)],
-    ['40', 'Own', 96/(96+49)],
-    ['40', 'Rent', 49/(96+49)],
-    ['50', 'Own', 88/(88+34)],
-    ['50', 'Rent', 34/(88+34)],
-    ['60', 'Own', 83/(83+40)],
-    ['60', 'Rent', 40/(83+40)],
-    ['70', 'Own', 45/(45+18)],
-    ['70', 'Rent', 18/(45+18)],
-    ['80', 'Own', 10/15],
-    ['80', 'Rent', 5/15]]
+    ['10', 'Own', .5],['10', 'Rent', .5],['20', 'Own', 20/(189)],['20', 'Rent', 169/189],['30', 'Own', 92/(92+167)],['30', 'Rent', 167/(92+167)],['40', 'Own', 96/(96+49)],['40', 'Rent', 49/(96+49)],['50', 'Own', 88/(88+34)],['50', 'Rent', 34/(88+34)],['60', 'Own', 83/(83+40)],['60', 'Rent', 40/(83+40)],['70', 'Own', 45/(45+18)],['70', 'Rent', 18/(45+18)],['80', 'Own', 10/15],['80', 'Rent', 5/15]]
 df_age_rent = pd.DataFrame(age_rent_own,columns=['Age', 'Housing Status', 'Percentage'])
 rent_age = alt.Chart(df_age_rent).mark_bar().encode(
     alt.X('Age:N'),
@@ -482,6 +467,16 @@ responses_student = alt.Chart(df).mark_bar().encode(
 responses_res_length = alt.Chart(df).mark_bar().encode(
     alt.Y('d11_residence_length:Q', title = 'Length of residence in Somerville', bin = True),
     alt.X('count():Q', title = 'Number of Responses')).properties(title = 'How long have you lived in Somerville?', width = 550)
+
+#census race data
+census_race = ['Hispanic or Latino','White','Black or African American Alone, Not Hispanic or Latino','Asian','Some Other Race alone, Not Hispanic or Latino','Two or More Races, Not Hispanic or Latino']
+census_race_totals = [7107, 48392, 3542, 7893, 1088, 3702]
+census_order = ['White', 'Asian', 'Hispanic or Latino', 'Two or More Races, Not Hispanic or Latino', 'Black or African American Alone, Not Hispanic or Latino', 'Some Other Race alone, Not Hispanic or Latino']
+census_source = pd.DataFrame({'a': census_race,'b': census_race_totals})
+
+race_census = alt.Chart(census_source).mark_bar().encode(
+    alt.Y('a', sort = census_order, title = None),
+    alt.X('b', title = None))
 
 
 
@@ -733,6 +728,13 @@ if navigation == 'Who answered the survey?':
     st.subheader('Residence Length')
     st.markdown('Most respondents had lived in Somerville for less than ten years:')
     st.altair_chart(responses_res_length)
+    st.header('')
+    st.subheader('Census data shows where the survey oversampled:')
+    col1, colspace, col2 = st.columns([5, 1, 5]) 
+    with col1:
+        st.altair_chart(race_census, use_container_width=True)
+    with col2:
+        st.altair_chart(responses_race)
     
 else:
     pass
