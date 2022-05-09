@@ -475,8 +475,8 @@ census_order = ['White', 'Asian', 'Hispanic or Latino', 'Two or More Races, Not 
 census_source = pd.DataFrame({'a': census_race,'b': census_race_totals})
 
 race_census = alt.Chart(census_source).mark_bar().encode(
-    alt.Y('a', sort = census_order, title = None),
-    alt.X('b', title = None))
+    alt.Y('a', sort = census_order, title = 'Population'),
+    alt.X('b', title = 'Race'))
 
 
 
@@ -734,7 +734,7 @@ if navigation == 'Who answered the survey?':
     with col1:
         st.altair_chart(race_census, use_container_width=True)
     with col2:
-        st.altair_chart(responses_race)
+        st.altair_chart(responses_race, use_container_width = True)
     
 else:
     pass
