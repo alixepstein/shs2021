@@ -538,7 +538,7 @@ if navigation == 'Demographics':
     
 if navigation == 'Income':
     st.subheader('Income')
-    st.markdown('Some description')
+    st.markdown('Citizens are about equally satisfied with living in Somerville, regardless of income.')
     st.altair_chart(satis_income)
     st.header('')
     income_navigation = st.selectbox('Choose a survey question to explore by income bracket', (
