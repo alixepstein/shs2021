@@ -1,0 +1,64 @@
+# for use when pulling data from open data portal
+
+import pandas as pd
+import altair as alt
+import shapefile
+import json
+import geopandas as gpd
+alt.renderers.enable('default')
+import requests
+alt.themes.enable('opaque')
+
+
+url="https://data.somervillema.gov/resource/bi8e-5vw8.csv"
+happiness_all=pd.read_csv(url)
+
+happiness_2021 = happiness_all[happiness_all['year'] == 2021]
+
+#rename columns to align with data on site vs data from excel
+column_from_site = {
+    'how_happy_do_you_feel_right': '1. How happy do you feel right now?',
+    'how_satisfied_are_you_with': '2. How satisfied are you with your life in general?',
+    'how_satisfied_are_you_with_1': '3. How satisfied are you with Somerville as a place to live?',
+    'how_satisfied_are_you_with_2': '4. How satisfied are you with your neighborhood?',   
+    'how_would_you_rate_the': '6a. How would you rate the availability of information about city services?', 
+    'how_would_you_rate_the_2': '6b. How would you rate the cost of housing?',
+    'how_would_you_rate_the_4': '6c. How would you rate the overall quality of public schools?',   
+    'how_would_you_rate_the_8': '6d. How would you rate your trust in the local police?',  
+    'how_would_you_rate_the_10': '6e. How would you rate the maintenance of streets and sidewalks?', 
+    'how_would_you_rate_the_11': '6f. How would you rate the availability of social community events?',   
+    'how_safe_do_you_feel_walking': '11. How safe do you feel walking in your neighborhood at night?',
+    'how_satisfied_are_you_with_3': '13. How satisfied are you with the beauty or physical setting of your neighborhood?',   
+    'how_satisfied_are_you_with_5': '12. How satisfied are you with the appearance of parks and squares in your neighborhood?',   
+    'what_is_your_gender': '1. What is your gender ',
+    'age':  'What is your age?', 
+    'what_is_your_race_or_ethnicity': '4. What is your race or ethnicity?',
+    'do_you_have_children_age': '6. Do you have children age 18 or younger who live with you?', 
+    'describe_your_housing_status': '7. Describe your housing status in Somerville.',  
+    'do_you_plan_to_move_away': '8a. Do you plan to move away from Somerville in the next two years?',
+    'how_long_have_you_lived_here': '11. How long have you lived in Somerville?',
+    'what_is_your_annual_household': '9. What is your annual household income?',  
+    'are_you_a_student': '10. Are you a student?',
+    'ward': 'Ward',
+    'do_you_feel_the_city_is_headed': '5. Do you feel the City is headed in the right direction or is it on the wrong track?',
+    'how_safe_do_you_feel_crossing': '9. How safe do you feel crossing a busy street in Somerville?',
+    'how_convenient_is_it_for': '10. How convenient is it for you to get where you want to go? ',
+    'how_satisfied_are_you_with_7': '14. How satisfied are you with the condition of your housing?',
+    'do_you_plan_to_move_away_1': '8b. If yes, why?',  
+    'what_is_your_primary_mode': '12. What is your primary mode of transportation? ',
+    'language': 'Language submitted in:',
+    'what_languages_do_you_speak': '3. What language(s) do you speak at home?'
+}
+    
+    
+df = df.rename(columns = column_from_site)
+
+#unlisted (so far) columns: 
+#       'Timestamp',  
+ #      'Envelope Postmarked:',
+  #     '7. In the past year, have you used 311 (via phone, online, etc)?',
+   #    '8. In the past year, did you attend a City led meeting?',
+    #   '15. In the past year, how satisfied were you with your ability to access City services?',
+     #  '5. Do you identify as having a disability and/or physical impairment that substantially limits one or more of your major activities?',
+      # 'Any comments?',
+       #'Confirmed (by PCR) COVID Cases'
