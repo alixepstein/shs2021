@@ -736,6 +736,16 @@ if navigation == 'Who answered the survey?':
 else:
     pass
 
+with st.sidebar:
+    st.header('')
+    st.header('')
+    st.header('')
+    st.header('')
+    st.header('')
+    st.header('')
+    st.header('')
+    st.header('')
+    st.header('')
+    st.header('')
+    st.markdown('Alexandra Epstein, 2022')
 
-
-    
